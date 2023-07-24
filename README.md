@@ -1,9 +1,9 @@
-# PWA-Builder
-A Progressive Web App Builder
+# Private Sin.ai
+And a Foundation for Simple Rick's Vanilla PWA Builder
 
 ## Development
 
-This project uses pre-processors to generate its source code.
+This project **optionally** uses pre-processors to generate its source code.
 - [CoffeeScript](https://coffeescript.org/) for Javascript
 - [Stylus](https://stylus-lang.com/) for CSS
 - [Pug](https://pugjs.org/api/getting-started.html) for HTML
@@ -16,6 +16,6 @@ This project uses pre-processors to generate its source code.
 ### Run locally
 
 - Install all dependencies: `npm install --no-save`
-- (Optional) HTTPS Configuration: `config/browser-sync.config.js`
+- HTTPS Configuration: `config/browser-sync.config.js`
 - Start the dev server: `npm start`
 - Build production app: `npm run build`
