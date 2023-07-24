@@ -1,7 +1,7 @@
 {
   "name": "sin.ai",
-  "version": "0.0.7",
-  "description": "A Progressive Web App Builder",
+  "version": "0.0.8",
+  "description": "private sin.ai",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sebfried/sin.ai.git"
@@ -9,22 +9,19 @@
   "license": "EUPL-1.2",
   "author": "Sebastian W. Friedrich",
   "scripts": {
-    "browser-sync-build": "node scripts/build.js",
-    "build": "npm-run-all purgecss pug-cli www-dist browser-sync-build",
-    "concurrently": "concurrently",
-    "copy": "node scripts/copy.js",
+    "browsersync.build": "node scripts/build.js",
+    "build": "npm-run-all purgecss pug-cli www-dist browsersync.build",
+    "copy.dev": "node scripts/copy.dev.js",
     "minifier": "html-minifier  --input-dir source --output-dir www --file-ext html --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --use-short-doctype --minify-js true --minify-css true",
     "ncp-fav": "ncp source/favicon.ico www/favicon.ico",
     "ncp-img": "ncp source/img www/img",
     "ncp-manifest": "ncp source/manifest.json www/manifest.json",
-    "postinstall": "node copy.js",
+    "postinstall": "node copy.dev.js",
     "pug-cli": "pug source --pretty",
     "purgecss": "purgecss --out source/css --config config/purgecss.config.js",
     "rm-www-all": "rimraf www/*",
     "start": "node scripts/dev.js",
     "stop": "echo 'Trying Linux/Unix Shell Command: killall node' && killall node",
-    "test": "npm start",
-    "watch-pug-cli": "npm-watch pug-cli",
     "www-dist": "npm-run-all rm-www-all minifier ncp-img ncp-fav ncp-manifest"
   },
   "dependencies": {
@@ -38,7 +35,6 @@
   },
   "devDependencies": {
     "browser-sync": "^2.29.3",
-    "concurrently": "^7.0.0",
     "html-minifier": "^4.0.0",
     "ncp": "^2.0.0",
     "npm-run-all": "^4.1.5",

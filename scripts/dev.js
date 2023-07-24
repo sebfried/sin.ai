@@ -21,14 +21,14 @@ function runPug() {
   }
 }
 
-function onInit() {
+function doStart() {
   runPug();
 }
 
 // Your custom actions here
 console.log('Before BrowserSync initialization!');
 
-onInit();
+doStart();
 
 // Start BrowserSync with the imported configuration
 browserSync.init(browserSyncConfig, (err, bs) => {
