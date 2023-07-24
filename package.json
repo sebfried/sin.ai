@@ -1,0 +1,88 @@
+{
+  "name": "sin.ai",
+  "version": "0.0.7",
+  "description": "A Progressive Web App Builder",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebfried/sin.ai.git"
+  },
+  "license": "EUPL-1.2",
+  "author": "Sebastian W. Friedrich",
+  "scripts": {
+    "animate-css": "ncp node_modules/animate.css/animate.css source/css/_animate.css",
+    "bootstrap-css": "ncp node_modules/bootstrap/dist/css/bootstrap.css source/css/_bootstrap.css",
+    "browser-sync-build": "browser-sync start --server './www' --files 'www/*.html' --browser 'google chrome' --startPath '' --config config/browser-sync.config.js --no-notify",
+    "browser-sync-start": "browser-sync start --server './source' --files 'source/*.html' --browser 'google chrome' --config config/browser-sync.config.js",
+    "build": "npm-run-all vendor stylus coffee purgecss pug-cli www-dist browser-sync-build",
+    "clean-animate": "cleancss -O1 'specialComments:0' source/css/_animate.css --output source/css/_animate.css",
+    "clean-bootstrap": "cleancss -O1 'specialComments:0' source/css/_bootstrap.css --output source/css/_bootstrap.css",
+    "clean-normalize": "cleancss -O1 'specialComments:0' source/css/_normalize.css --output source/css/_normalize.css",
+    "coffee": "coffee --compile source && npm run pug-cli",
+    "concurrently": "concurrently",
+    "copy-assets": "node scripts/copy-assets.js",
+    "lazyload-js": "ncp node_modules/vanilla-lazyload/dist/lazyload.js source/js/lazyload.js",
+    "minifier": "html-minifier  --input-dir source --output-dir www --file-ext html --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --use-short-doctype --minify-js true --minify-css true",
+    "ncp-fav": "ncp source/favicon.ico www/favicon.ico",
+    "ncp-img": "ncp source/img www/img",
+    "ncp-manifest": "ncp source/manifest.json www/manifest.json",
+    "normalize-css": "ncp node_modules/normalize.css/normalize.css source/css/_normalize.css",
+    "postinstall": "node copy-assets.js",
+    "pug-cli": "pug source --pretty",
+    "purgecss": "purgecss --out source/css --config config/purgecss.config.js",
+    "rm-www-all": "rimraf www/*",
+    "start": "npm-run-all vendor && concurrently npm:watch-stylus npm:watch-coffee npm:watch-pug-cli npm:browser-sync-start",
+    "stop": "echo 'Trying Linux/Unix Shell Command: killall node' && killall node",
+    "stylus": "stylus -u autoprefixer-stylus source/css/*.styl source/src/4xx/*.styl && npm run pug-cli",
+    "test": "npm start",
+    "vendor": "npm-run-all lazyload-js normalize-css clean-normalize animate-css clean-animate bootstrap-css clean-bootstrap",
+    "watch-coffee": "npm-watch coffee",
+    "watch-pug-cli": "npm-watch pug-cli",
+    "watch-stylus": "npm-watch stylus",
+    "www-dist": "npm-run-all rm-www-all minifier ncp-img ncp-fav ncp-manifest"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.4",
+    "animate.css": "^4.1.1",
+    "bootstrap": "^5.1.3",
+    "gsap": "^3.12.2",
+    "normalize.css": "^8.0.1",
+    "tailwindcss": "^3.3.3",
+    "vanilla-lazyload": "^17.6.1"
+  },
+  "devDependencies": {
+    "autoprefixer-stylus": "^1.0.0",
+    "browser-sync": "^2.27.9",
+    "clean-css": "^4.2.4",
+    "clean-css-cli": "^4.3.0",
+    "coffeescript": "^2.6.1",
+    "concurrently": "^7.0.0",
+    "html-minifier": "^4.0.0",
+    "ncp": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.11.0",
+    "pug-cli": "^1.0.0-alpha6",
+    "purgecss": "^1.4.2",
+    "rimraf": "^3.0.2",
+    "stylus": "^0.56.0"
+  },
+  "watch": {
+    "stylus": {
+      "patterns": [
+        "source"
+      ],
+      "extensions": "styl"
+    },
+    "pug-cli": {
+      "patterns": [
+        "source"
+      ],
+      "extensions": "pug"
+    },
+    "coffee": {
+      "patterns": [
+        "source"
+      ],
+      "extensions": "coffee"
+    }
+  }
+}
