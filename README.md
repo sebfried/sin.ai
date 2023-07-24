@@ -1,5 +1,5 @@
 # Private Sin.ai
-And a Foundation for Simple Rick's Vanilla PWA Builder
+And a Foundation for Simple Rick's Vanilla PWA Builder -> realityland/vanilla-pwa-builder
 
 ## Development
 
