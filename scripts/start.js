@@ -1,17 +1,20 @@
 const browserSync = require('browser-sync').create();
-const browserSyncConfig = require('./start.browser-sync.js');
+const browserSyncConfig = require('./start-browser-sync.config.js');
 const { execSync } = require('child_process');
 
-// Watch for changes in the pug files
-browserSync.watch('source/**/**/**/*.pug').on('change', function (event) {
+
+(function doStart() {
+  console.log('Start dev mode');
   runPug();
-});
+  startBrowserSync();
+  startBrowserSyncWatch();
+})();
 
 function runPug() {
   console.log('Starting Pug-to-HTML conversion.');
   try {
     // Execute the conversion script synchronously
-    execSync('node scripts/pug.js', { stdio: 'inherit' });
+    execSync('node scripts/common-pug.js', { stdio: 'inherit' });
     console.log('Pug-to-HTML conversion completed successfully.');
 
     // Call other build tasks or continue with your build process here.
@@ -21,19 +24,18 @@ function runPug() {
   }
 }
 
-function doStart() {
-  runPug();
+function startBrowserSync() {
+  // Start BrowserSync with the imported configuration
+  browserSync.init(browserSyncConfig, (err, bs) => {
+    if (!err) {
+      // Run your custom action after BrowserSync initialization
+    }
+  });
 }
 
-// Your custom actions here
-console.log('Before BrowserSync initialization!');
-
-doStart();
-
-// Start BrowserSync with the imported configuration
-browserSync.init(browserSyncConfig, (err, bs) => {
-  if (!err) {
-    // Run your custom action after BrowserSync initialization
-    console.log('After BrowserSync initialization!');
-  }
+function startBrowserSyncWatch(){
+// Watch for changes in the pug files
+browserSync.watch('source/**/**/**/*.pug').on('change', function (event) {
+  runPug();
 });
+}

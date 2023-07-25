@@ -1,6 +1,6 @@
 const fs = require('fs-extra');
 const postcss = require('postcss');
-const postcssConfig = require('./build.postcss.js');
+const postcssConfig = require('./build-postcss.config.js');
 
 async function copyAndMinifyCSS() {
   try {
