@@ -1,5 +1,5 @@
 const browserSync = require('browser-sync').create();
-const browserSyncConfig = require('./browsersync.dev.js');
+const browserSyncConfig = require('./start.browser-sync.js');
 const { execSync } = require('child_process');
 
 // Watch for changes in the pug files
