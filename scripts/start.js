@@ -2,7 +2,6 @@ const browserSync = require('browser-sync').create();
 const browserSyncConfig = require('./start-browser-sync.config.js');
 const { execSync } = require('child_process');
 
-
 (function doStart() {
   console.log('Start dev mode');
   runPug();

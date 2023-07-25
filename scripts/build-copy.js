@@ -7,7 +7,7 @@ const copyOptions = {
   sourceDirectory: 'source',
   destinationDirectory: 'docs',
   directoriesToCopy: [],  // Empty array for wildcard-like behavior for all directories
-  excludedFileTypes: ['.txt', '.pug'], // Files with this filetype to be excluded from all directories (optional)
+  excludedFileTypes: ['.pug','.DS_Store'], // Files with this filetype to be excluded from all directories (optional)
   excludedDirectories: ['modules','temp'], // Does not work for subdirectories! (optional)
   copyFilesOnly: [ // Copy all files from a directory, except excluded file types. Use absolute paths. (optional)
     { from: './source', to: './docs' },
@@ -147,9 +147,9 @@ async function copyFilesOnly(copyFilesWithoutDirectories, excludedFileTypes = []
 copyAll();
 
 // Export the functions as modules
-module.exports = {
-    destroyAndCreateDirectory,
-    copyFilesAndDirectories,
-    copyFilesOnly,
-    copyAll,
-  };
+// module.exports = {
+//     destroyAndCreateDirectory,
+//     copyFilesAndDirectories,
+//     copyFilesOnly,
+//     copyAll,
+//   };

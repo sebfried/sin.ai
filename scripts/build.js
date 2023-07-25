@@ -1,12 +1,13 @@
 const browserSync = require('browser-sync').create();
 const browserSyncConfig = require('./build-browser-sync.config.js');
-const { copyAll } = require('./build-copy.js');
+const { execSync } = require('child_process');
 
 // Start build
 (function doBuild() {
   console.log('Start build');
   runPug();
   copyAll();
+  processCSS();
   startBrowserSyncBuild();
 })();
 
@@ -23,6 +24,34 @@ function runPug() {
     // Handle the failure or terminate the build process accordingly.
   }
 }
+
+function copyAll() {
+  console.log('Starting copy.');
+  try {
+    // Execute the conversion script synchronously
+    execSync('node scripts/build-copy.js', { stdio: 'inherit' });
+
+    // Call other build tasks or continue with your build process here.
+  } catch (error) {
+    console.error('Copy failed:', error.message);
+    // Handle the failure or terminate the build process accordingly.
+  }
+}
+
+function processCSS() {
+  console.log('Starting CSS.');
+  try {
+    // Execute the conversion script synchronously
+    execSync('node scripts/build-css.js', { stdio: 'inherit' });
+
+    // Call other build tasks or continue with your build process here.
+  } catch (error) {
+    console.error('CSS failed:', error.message);
+    // Handle the failure or terminate the build process accordingly.
+  }
+}
+
+
 
 function startBrowserSyncBuild() {
   // Start BrowserSync with the imported configuration

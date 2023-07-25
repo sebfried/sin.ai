@@ -1,6 +1,6 @@
 {
   "name": "sin.ai",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "private sin.ai",
   "repository": {
     "type": "git",
@@ -10,11 +10,10 @@
   "author": "Sebastian W. Friedrich",
   "scripts": {
     "build": "node scripts/build.js",
-    "build:copy": "node scripts/build-copy.js",
     "build:css": "node scripts/build-css.js",
     "start": "npm run start:copy && node scripts/start.js",
     "start:copy": "node scripts/start-copy.js",
-
+    "start:pug": "node scripts/common-pug.js",
     "stop": "echo 'Trying Linux/Unix Shell Command: killall node' && killall node",
     "www-dist": "npm-run-all rm-www-all minifier ncp-img ncp-fav ncp-manifest",
     "minifier": "html-minifier  --input-dir source --output-dir www --file-ext html --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --use-short-doctype --minify-js true --minify-css true",
@@ -38,8 +37,10 @@
     "cssnano": "^6.0.1",
     "fs-extra": "^11.1.1",
     "html-minifier-terser": "^7.2.0",
+    "jsdom": "^22.1.0",
     "postcss": "^8.4.27",
     "pug": "^3.0.2",
+    "purgecss": "^5.0.0",
     "terser": "^5.19.2"
   }
 }
