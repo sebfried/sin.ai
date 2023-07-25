@@ -1,12 +1,12 @@
 const browserSync = require('browser-sync').create();
 const browserSyncConfig = require('./build-browser-sync.config.js');
-const { copyAllFilesAndFolders } = require('./build-copy.js');
+const { copyAll } = require('./build-copy.js');
 
 // Start build
 (function doBuild() {
   console.log('Start build');
   runPug();
-  copyAllFilesAndFolders();
+  copyAll();
   startBrowserSyncBuild();
 })();
 
