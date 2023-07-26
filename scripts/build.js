@@ -1,17 +1,19 @@
 const browserSync = require('browser-sync').create();
 const browserSyncConfig = require('./build-browser-sync.config.js');
 const { execSync } = require('child_process');
+const { displayAsciiArt } = require('./common-ascii-art');
 
 // Start build
-(function doBuild() {
-  console.log('Start build');
+(async function doBuild() {
+  await displayAsciiArt('Simple Rick´s');
+  console.log('Vanilla PWA Builder\n')
   runPug();
   copyAll();
   processCSS();
   purgeCSS();
   minifyJS();
   minifyHTML();
-  console.log('Finished build');
+  console.log('Build finished!');
   startBrowserSyncBuild();
 })();
 
