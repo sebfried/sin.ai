@@ -8,6 +8,7 @@ const { execSync } = require('child_process');
   runPug();
   copyAll();
   processCSS();
+  purgeCSS();
   minifyJS();
   minifyHTML();
   console.log('Finished build');
@@ -15,78 +16,64 @@ const { execSync } = require('child_process');
 })();
 
 function runPug() {
-  console.log('Starting Pug-to-HTML conversion.');
+  console.log('runPug()');
   try {
-    // Execute the conversion script synchronously
     execSync('node scripts/common-pug.js', { stdio: 'inherit' });
-    console.log('Pug-to-HTML conversion completed successfully.');
-
-    // Call other build tasks or continue with your build process here.
   } catch (error) {
-    console.error('Pug-to-HTML conversion failed:', error.message);
-    // Handle the failure or terminate the build process accordingly.
+    console.error('runPug() failed:', error.message);
   }
 }
 
 function copyAll() {
-  console.log('Starting copy.');
+  console.log('copyAll()');
   try {
-    // Execute the conversion script synchronously
     execSync('node scripts/build-copy.js', { stdio: 'inherit' });
-
-    // Call other build tasks or continue with your build process here.
   } catch (error) {
-    console.error('Copy failed:', error.message);
-    // Handle the failure or terminate the build process accordingly.
+    console.error('copyAll() failed:', error.message);
   }
 }
 
 function processCSS() {
-  console.log('Starting CSS.');
+  console.log('processCSS()');
   try {
-    // Execute the conversion script synchronously
     execSync('node scripts/build-css.js', { stdio: 'inherit' });
-
-    // Call other build tasks or continue with your build process here.
   } catch (error) {
-    console.error('CSS failed:', error.message);
-    // Handle the failure or terminate the build process accordingly.
+    console.error('processCSS() failed:', error.message);
+  }
+}
+
+function purgeCSS() {
+  console.log('purgeCSS()');
+  try {
+    execSync('node scripts/build-purgecss.js', { stdio: 'inherit' });
+  } catch (error) {
+    console.error('purgeCSS() failed:', error.message);
   }
 }
 
 function minifyJS() {
-  console.log('Starting JavaScript minification.');
+  console.log('minifyJS()');
   try {
-    // Execute the conversion script synchronously
     execSync('node scripts/build-js.js', { stdio: 'inherit' });
-
-    // Call other build tasks or continue with your build process here.
   } catch (error) {
-    console.error('JavaScript minification failed:', error.message);
-    // Handle the failure or terminate the build process accordingly.
+    console.error('minifyJS() failed:', error.message);
   }
 }
 
 function minifyHTML() {
-  console.log('Starting HTML minification.');
+  console.log('minifyHTML()');
   try {
-    // Execute the conversion script synchronously
     execSync('node scripts/build-html.js', { stdio: 'inherit' });
-
-    // Call other build tasks or continue with your build process here.
   } catch (error) {
-    console.error('HTML minification failed:', error.message);
-    // Handle the failure or terminate the build process accordingly.
+    console.error('minifyHTML() failed:', error.message);
   }
 }
 
 function startBrowserSyncBuild() {
-  // Start BrowserSync with the imported configuration
   browserSync.init(browserSyncConfig, (err, bs) => {
     if (!err) {
-      // Run your custom action after BrowserSync initialization
-      console.log('After BrowserSync initialization!');
+      // Run custom action after BrowserSync initialization
+      console.log('Wubba lubba dub dub!');
     }
   });
 }
-
