@@ -8,6 +8,9 @@ const { execSync } = require('child_process');
   runPug();
   copyAll();
   processCSS();
+  minifyJS();
+  minifyHTML();
+  console.log('Finished build');
   startBrowserSyncBuild();
 })();
 
@@ -51,7 +54,31 @@ function processCSS() {
   }
 }
 
+function minifyJS() {
+  console.log('Starting JavaScript minification.');
+  try {
+    // Execute the conversion script synchronously
+    execSync('node scripts/build-js.js', { stdio: 'inherit' });
 
+    // Call other build tasks or continue with your build process here.
+  } catch (error) {
+    console.error('JavaScript minification failed:', error.message);
+    // Handle the failure or terminate the build process accordingly.
+  }
+}
+
+function minifyHTML() {
+  console.log('Starting HTML minification.');
+  try {
+    // Execute the conversion script synchronously
+    execSync('node scripts/build-html.js', { stdio: 'inherit' });
+
+    // Call other build tasks or continue with your build process here.
+  } catch (error) {
+    console.error('HTML minification failed:', error.message);
+    // Handle the failure or terminate the build process accordingly.
+  }
+}
 
 function startBrowserSyncBuild() {
   // Start BrowserSync with the imported configuration

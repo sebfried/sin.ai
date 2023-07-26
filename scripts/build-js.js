@@ -2,6 +2,10 @@ const fs = require('fs-extra');
 const path = require('path');
 const { minify } = require('terser');
 
+// To check, to do:
+// How to handle files in the base directory?
+// How to handle all JavaScript files in docs?
+
 // Define the jsConfig object to configure the script
 const jsConfig = {
   baseDirectory: 'docs', // The base directory for processing JavaScript files
