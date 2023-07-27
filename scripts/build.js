@@ -2,7 +2,7 @@ const browserSync = require('browser-sync').create();
 const browserSyncConfig = require('./build-browser-sync.config.js');
 const { execSync } = require('child_process');
 const { displayAsciiArt } = require('./common-ascii-art');
-const { processCSS } = require('./modules/build-css-module.js');
+const { processCSS } = require('./build-css.js');
 
 // Start build
 (async function doBuild() {
