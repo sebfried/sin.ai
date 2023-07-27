@@ -35,10 +35,12 @@ function copyAll() {
   }
 }
 
+const { processCSS } = require('./modules/build-css-module.js');
+
 function processCSS() {
   console.log('processCSS()');
   try {
-    execSync('node scripts/build-css.js', { stdio: 'inherit' });
+    processCSS();
   } catch (error) {
     console.error('processCSS() failed:', error.message);
   }
