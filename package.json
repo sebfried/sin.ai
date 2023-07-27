@@ -10,7 +10,7 @@
   "author": "Sebastian W. Friedrich",
   "scripts": {
     "build": "node scripts/build.js",
-    "build:css": "node modules/build-css-module.js",
+    "build:css": "node scripts/build-css.js",
     "build:html": "node scripts/build-html.js",
     "build:js": "node scripts/build-js.js",
     "build:purgecss": "node scripts/build-purgecss.js",
