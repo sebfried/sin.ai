@@ -25,6 +25,9 @@ Desktop.ini
 # Visual Studio Code settings
 .vscode/
 
+# Aider
+.aider*
+
 # Build output
 # dist/
 # build/
@@ -48,4 +51,3 @@ Desktop.ini
 
 # Uncomment the following line if you want to include the compiled CSS files
 # *.css
-.aider*
