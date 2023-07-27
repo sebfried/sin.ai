@@ -1,3 +1,50 @@
-node_modules
-.history/
+# Node.js dependencies
+node_modules/
+
+# Package-lock file
+package-lock.json
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+
+# macOS
 .DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*.swp
+
+# Visual Studio Code settings
+.vscode/
+
+# Build output
+# dist/
+# build/
+# out/
+# docs/
+
+# Commented-out entries for additional options:
+# Uncomment the following lines if needed:
+# .env.local
+# .env.development.local
+# .env.test.local
+# .env.production.local
+
+# Uncomment the following line if you use yarn instead of npm
+# package-lock.json
+# yarn.lock
+
+# Uncomment the following lines if you use TypeScript and want to include the compiled JS files
+# *.js
+# *.js.map
+
+# Uncomment the following line if you want to include the compiled CSS files
+# *.css
