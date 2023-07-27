@@ -5,7 +5,10 @@ const postcssImport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const { JSDOM } = require('jsdom');
-const chalk = require('chalk');
+let chalk;                                                                                                                  
+import('chalk').then((module) => {                                                                                          
+  chalk = module.default;                                                                                                   
+});      
 
 const baseDirectory = 'docs'; // Change this to set the base directory
 const cssDirectories = ['css']; // Relative paths to folders in the docs directory
