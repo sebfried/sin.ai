@@ -2,6 +2,7 @@ const browserSync = require('browser-sync').create();
 const browserSyncConfig = require('./build-browser-sync.config.js');
 const { execSync } = require('child_process');
 const { displayAsciiArt } = require('./common-ascii-art');
+const { processCSS } = require('./modules/build-css-module.js');
 
 // Start build
 (async function doBuild() {
@@ -35,16 +36,14 @@ function copyAll() {
   }
 }
 
-const { processCSS } = require('./modules/build-css-module.js');
-
-function processCSS() {
-  console.log('processCSS()');
-  try {
-    processCSS();
-  } catch (error) {
-    console.error('processCSS() failed:', error.message);
-  }
-}
+// function processCSS() {
+//   console.log('processCSS()');
+//   try {
+//     processCSS();
+//   } catch (error) {
+//     console.error('processCSS() failed:', error.message);
+//   }
+// }
 
 function purgeCSS() {
   console.log('purgeCSS()');
