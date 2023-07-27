@@ -119,13 +119,13 @@ async function processCSSInHTMLHead(htmlFilePath) {
   }
 }
 
- // If this module is run directly, call processCSS                                                                          
- if (require.main === module) {                                                                                              
-  processCSS();                                                                                                             
-}                                                                                                                           
-                                                                                                                            
-// Export the functions as modules                                                                                          
-module.exports = {                                                                                                          
-  processCSS,                                                                                                               
-  processCSSInHTMLHead,                                                                                                     
-};     
+// If this module is run directly, call processCSS
+if (require.main === module) {
+  processCSS();
+}
+
+// Export the functions as modules
+module.exports = {
+  processCSS,
+  processCSSInHTMLHead,
+};
