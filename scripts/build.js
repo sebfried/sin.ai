@@ -10,7 +10,7 @@ const { processCSS } = require('./build-css.js');
   console.log('Vanilla PWA Builder\n')
   runPug();
   copyAll();
-  // processCSS(); // Commented out this line
+  postCSS();
   purgeCSS();
   minifyJS();
   minifyHTML();
@@ -36,14 +36,14 @@ function copyAll() {
   }
 }
 
-// function processCSS() {
-//   console.log('processCSS()');
-//   try {
-//     processCSS();
-//   } catch (error) {
-//     console.error('processCSS() failed:', error.message);
-//   }
-// }
+function postCSS() {
+  console.log('processCSS()');
+  try {
+    processCSS();
+  } catch (error) {
+    console.error('processCSS() failed:', error.message);
+  }
+}
 
 function purgeCSS() {
   console.log('purgeCSS()');
