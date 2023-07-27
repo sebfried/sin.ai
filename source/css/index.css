@@ -3,40 +3,19 @@
   padding: 0;
 }
 
-#artcontainer {
-  width: 100%;
-  max-width: 1000px;
+.image-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Optional: Center the images horizontally */
+  width: 1000px;
   margin: 0 auto;
 }
 
-#artcontainer a {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-}
-
-#artcontainer img {
+.image-column img {
   max-width: 100%;
-  max-height: 100%;
 }
 
-.temp {
-  height: 1500px;
-}
-
-#_1,
-#_4 {
-  background-color: red;
-}
-
-#_2,
-#_5 {
-  background-color: blue;
-}
-
-#_3,
-#_6 {
-  background-color: green;
+/* Additional styles for smooth scrolling (optional) */
+html {
+  scroll-behavior: smooth;
 }
