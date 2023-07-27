@@ -5,6 +5,7 @@ const postcssImport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const { JSDOM } = require('jsdom');
+const chalk = require('chalk');
 
 const baseDirectory = 'docs'; // Change this to set the base directory
 const cssDirectories = ['css']; // Relative paths to folders in the docs directory
@@ -19,7 +20,7 @@ const postcssPlugins = [
 
 // Main function to process CSS files
 async function processCSS() {
-  console.log('processCSS()');
+  console.log(chalk.green('processCSS()'));
   try {
     for (const cssDir of cssDirectories) {
       const sourceDir = path.join(baseDirectory, cssDir);

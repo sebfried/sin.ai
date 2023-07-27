@@ -1,4 +1,3 @@
-const chalk = require('chalk');
 const browserSync = require('browser-sync').create();
 const browserSyncConfig = require('./build-browser-sync.config.js');
 const { execSync } = require('child_process');
@@ -15,7 +14,7 @@ const { processCSS } = require('./build-css.js');
   purgeCSS();
   minifyJS();
   minifyHTML();
-  console.log(chalk.green('Build finished!'));
+  console.log('Build finished!');
   startBrowserSyncBuild();
 })();
 
