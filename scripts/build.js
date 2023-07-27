@@ -10,7 +10,7 @@ const { processCSS } = require('./build-css.js');
   console.log('Vanilla PWA Builder\n')
   runPug();
   copyAll();
-  postCSS();
+  await processCSS();
   purgeCSS();
   minifyJS();
   minifyHTML();
@@ -33,15 +33,6 @@ function copyAll() {
     execSync('node scripts/build-copy.js', { stdio: 'inherit' });
   } catch (error) {
     console.error('copyAll() failed:', error.message);
-  }
-}
-
-function postCSS() {
-  console.log('processCSS()');
-  try {
-    processCSS();
-  } catch (error) {
-    console.error('processCSS() failed:', error.message);
   }
 }
 

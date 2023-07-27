@@ -19,6 +19,7 @@ const postcssPlugins = [
 
 // Main function to process CSS files
 async function processCSS() {
+  console.log('processCSS()');
   try {
     for (const cssDir of cssDirectories) {
       const sourceDir = path.join(baseDirectory, cssDir);
