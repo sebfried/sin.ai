@@ -10,7 +10,7 @@ const { processCSS } = require('./build-css.js');
   console.log('Vanilla PWA Builder\n')
   runPug();
   copyAll();
-  processCSS();
+  // processCSS(); // Commented out this line
   purgeCSS();
   minifyJS();
   minifyHTML();
