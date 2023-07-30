@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
+
+.image-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Optional: Center the images horizontally */
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.image-column img {
+  max-width: 100%;
+}
+
+/* Add styles for the pulsating circle loading indicator */
+.loading-indicator {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.pulsating-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  animation: pulsate 1.2s ease-out infinite;
+}
+
+@keyframes pulsate {
+  0% {
+      transform: scale(0.8);
+      opacity: 0.5;
+  }
+  50% {
+      transform: scale(1);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(0.8);
+      opacity: 0.5;
+  }
+}
+
+/* Additional styles for the lazy-loaded images */
+.image-column img {
+  max-width: 100%;
+  opacity: 0; /* Initially set the opacity to 0 */
+}
+
+
+/* .loading-indicator {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: pulsate 1.5s infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+} */

@@ -10,6 +10,16 @@ And a Foundation for Simple Rick's Vanilla PWA Builder -> realityland/vanilla-pw
 This project **optionally** uses Pug for HTML!
 - [Pug](https://pugjs.org/api/getting-started.html)
 
+## PWA and HTTPS
+
+For PWA development, for some reason, it is mandatory to use a valid SSL Certificate.
+
+In Chrome, there is the option allow insecure localhsot, but at the moment, it seems to be broken.
+
+Chrome://Flags/#Allow-Insecure-Localhost
+
+The best way is to use mkcert.
+
 ### Run locally
 
 - Install all dependencies: `npm install`
