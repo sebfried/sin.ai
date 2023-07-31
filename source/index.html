@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/css/style.css" type="text/css">
   <noscript>
     <style>
-      .loading-indicator {
+      .loading-indicator, .image-overlay {
         display: none;
       }
 
@@ -24,24 +24,30 @@
   <div class="preloader"></div>
   <!-- <div class="menu-bar"><a href="/">Home</a></div> -->
   <div class="content">
-    <div class="image-column">
+    <div class="lazy image-column">
       <a id="_6" href="#_6">
-        <img src="/img/art/6.png" loading="lazy" alt="">
+        <div class="image-overlay"></div>
+        <img src="/img/art/6.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
       </a>
       <a id="_5" href="#_5">
-        <img src="/img/art/5.png" loading="lazy" alt="">
+        <div class="image-overlay"></div>
+        <img src="/img/art/5.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
       </a>
       <a id="_4" href="#_4">
-        <img src="/img/art/4.png" loading="lazy" alt="">
+        <div class="image-overlay"></div>
+        <img src="/img/art/4.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
       </a>
       <a id="_3" href="#_3">
-        <img src="/img/art/3.png" loading="lazy" alt="">
+        <div class="image-overlay"></div>
+        <img src="/img/art/3.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
       </a>
       <a id="_2" href="#_2">
-        <img src="/img/art/2.png" loading="lazy" alt="">
+        <div class="image-overlay"></div>
+        <img src="/img/art/2.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
       </a>
       <a id="_1" href="#_1">
-        <img src="/img/art/1.png" loading="lazy" alt="">
+        <div class="image-overlay" style="aspect-ratio: 16/9";></div>
+        <img src="/img/art/1.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
       </a>
     </div>
   </div>
