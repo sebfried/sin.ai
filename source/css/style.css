@@ -54,17 +54,15 @@ body {
   }
 }
 
-/* Image Loading Indicator */
+/* Image Loading Indicator
 
 .image-overlay {
   position: relative;
   background-color: white;
-  opacity: 0.5; /* Adjust the desired opacity */
-  pointer-events: none; /* Allow clicks to pass through */
-  /* Add any other styles for the overlay (size, border-radius, etc.) */
+  opacity: 0.5;
+  pointer-events: none;
 }
 
-/* Add animation for pulsing effect */
 @keyframes pulsing {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
@@ -78,6 +76,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: inherit; /* Match the border-radius of the overlay */
-  animation: pulsing 2s infinite; /* Adjust animation duration as needed */
-}
+  border-radius: inherit; 
+  animation: pulsing 2s infinite;
+} */
