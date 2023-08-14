@@ -24,27 +24,43 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         );
     });
+
+    changeImageClicks();
 });
 
-const pathToPage = '/6.html'
+function changeImageClicks() {
+    const fetchLinks = document.querySelectorAll(".content a");
 
-async function fetchAndInsertContent(pathToPage) {
+    fetchLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            if (this.classList.contains("fetched")) {
+                this.parentNode.querySelector(".image-info").remove();
+                this.classList.remove("fetched");
+            } else {
+                const linkHref = this.getAttribute("href");
+                fetchAndInsertContent(linkHref, this);
+                this.classList.add("fetched");
+            }
+        });
+    });
+}
+
+async function fetchAndInsertContent(pathToPage, thisElement) {
     try {
         const response = await fetch(pathToPage);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        
+
         const html = await response.text();
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         const fetchedContent = doc.querySelector('.content > .image-info');
 
         if (fetchedContent) {
-            // Replace the existing content of an element with id 'target-element'
-            // with the content fetched from the other page
-            const siblingElement = document.getElementById('_6');
-            const parentElement = siblingElement.parentNode;
+            const parentElement = thisElement.parentNode;
             parentElement.appendChild(fetchedContent.cloneNode(true));
         } else {
             console.warn('The .content element was not found in the fetched page.');

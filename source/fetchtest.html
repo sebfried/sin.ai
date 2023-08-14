@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<!-- Link to fetch and display content -->
+<a href="6.html" class="fetch-link">Fetch and Display Content</a>
+<div id="content-container"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const fetchLink = document.querySelector(".fetch-link");
+  const contentContainer = document.getElementById("content-container");
+
+  fetchLink.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const linkHref = this.getAttribute("href");
+    fetchPageContent(linkHref);
+  });
+
+  function fetchPageContent(url) {
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        // Create a div to hold the fetched content
+        const fetchedContent = document.createElement("div");
+        fetchedContent.innerHTML = data;
+
+        // Append the fetched content below the link
+        contentContainer.appendChild(fetchedContent);
+      })
+      .catch(error => console.error(error));
+  }
+});
+</script>
+
+</body>
+</html>
