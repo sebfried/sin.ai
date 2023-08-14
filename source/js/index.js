@@ -1,21 +1,7 @@
-// DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function () {
-    // removeHtmlLazyLoading();
-});
-
-// GSAP Animations
-window.addEventListener('load', function () {
-    gsap.to('.preloader', { duration: 1, opacity: 0, display: 'none', ease: 'power1.out' });
-
-    // Start the introduction animation once the preloader is hidden
-    gsap.to('.content', { duration: 1, opacity: 1, y: -50, ease: 'power2.out', delay: 1 });
-});
-
-
 // Wait for the document to be ready
 document.addEventListener("DOMContentLoaded", function () {
     // Get all the images in the column
-    const images = document.querySelectorAll(".image-column img");
+    const images = document.querySelectorAll(".image-column > div");
 
     // Loop through each image and create the scroll animation
     images.forEach((image) => {
@@ -40,6 +26,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+const pathToPage = '/6.html'
+
+async function fetchAndInsertContent(pathToPage) {
+    try {
+        const response = await fetch(pathToPage);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const fetchedContent = doc.querySelector('.content > .image-info');
+
+        if (fetchedContent) {
+            // Replace the existing content of an element with id 'target-element'
+            // with the content fetched from the other page
+            const siblingElement = document.getElementById('_6');
+            const parentElement = siblingElement.parentNode;
+            parentElement.appendChild(fetchedContent.cloneNode(true));
+        } else {
+            console.warn('The .content element was not found in the fetched page.');
+        }
+    } catch (error) {
+        console.error('Error fetching and inserting content:', error);
+    }
+}
 
 
 //

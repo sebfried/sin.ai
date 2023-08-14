@@ -1,0 +1,8 @@
+.loading-indicator,
+.image-overlay {
+  display: none;
+}
+
+.content {
+  opacity: 1;
+}
