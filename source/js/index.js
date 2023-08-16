@@ -36,9 +36,18 @@ function changeImageClicks() {
             event.preventDefault();
 
             if (this.classList.contains("fetched")) {
-                this.parentNode.querySelector(".image-info").remove();
+                // Collapse and remove image info
+                const imageInfo = this.parentNode.querySelector(".image-info");
+                const state = Flip.getState(imageInfo, { props: "opacity" });
+                imageInfo.classList.remove("active");
+                Flip.from(state, {
+                    onComplete: () => {
+                        imageInfo.remove()
+                    }
+                });;
                 this.classList.remove("fetched");
             } else {
+                // Add and expand image info
                 const linkHref = this.getAttribute("href");
                 fetchAndInsertContent(linkHref, this);
                 this.classList.add("fetched");
@@ -46,6 +55,8 @@ function changeImageClicks() {
         });
     });
 }
+
+gsap.registerPlugin(Flip);
 
 async function fetchAndInsertContent(pathToPage, thisElement) {
     try {
@@ -62,6 +73,10 @@ async function fetchAndInsertContent(pathToPage, thisElement) {
         if (fetchedContent) {
             const parentElement = thisElement.parentNode;
             parentElement.appendChild(fetchedContent.cloneNode(true));
+            const imageInfo = parentElement.querySelector('.image-info');
+            const state = Flip.getState(imageInfo, { props: "opacity" });
+            imageInfo.classList.add("active");
+            Flip.from(state);
         } else {
             console.warn('The .content element was not found in the fetched page.');
         }

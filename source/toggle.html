@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+.accordion {
+  width: 250px;
+  margin: 15px;
+  box-shadow: 0 8px 17px rgba(0,0,0,.2);
+}
+
+.accordion-menu {
+  font-size: 15px;
+  background: #0277BD;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+
+.accordion-content {
+  height: 0;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.accordion-content.expanded {
+  height: 0;
+  overflow: hidden;
+}
+
+p {
+  margin: 10px;
+}
+
+
+.active .accordion-content {
+  height: auto;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <button id="all">See all</button>
+
+    <div class="accordion">
+    
+      <div class="accordion-group">
+        <div class="accordion-menu">
+          Alpha
+        </div>
+        <div class="accordion-content">
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
+        </div>
+      </div>
+    
+      <div class="accordion-group">
+        <div class="accordion-menu">
+          Bravo
+        </div>
+        <div class="accordion-content">
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
+        </div>
+      </div>
+    
+      <div class="accordion-group">
+        <div class="accordion-menu">
+          Charlie
+        </div>
+        <div class="accordion-content">
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
+        </div>
+      </div>
+      
+      <div class="accordion-group">
+        <div class="accordion-menu">
+          Delta
+        </div>
+        <div class="accordion-content">
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
+        </div>
+      </div>
+      
+      <div class="accordion-group">
+        <div class="accordion-menu">
+          Echo
+        </div>
+        <div class="accordion-content">
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
+        </div>
+      </div>
+    
+    </div>
+      
+<script src="/vendor/gsap.min.js"></script>
+<script src="/vendor/Flip.min.js"></script>
+<script>
+gsap.registerPlugin(Flip);
+
+const groups = gsap.utils.toArray(".accordion-group");
+
+groups.forEach(el => {
+  el.addEventListener("click", () => toggleMenu(el));
+});
+
+function toggleMenu(el) {
+  let state = Flip.getState(el.querySelector(".accordion-content"));
+  el.classList.toggle("active"); 
+  Flip.from(state);
+}
+
+document.querySelector('#all').addEventListener("click", () => {
+  groups.forEach(el => { toggleMenu(el) })
+});
+
+</script>
+
+</body>
+</html>

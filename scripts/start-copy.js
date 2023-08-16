@@ -6,6 +6,7 @@ const path = require('path');
 const assetsToCopy = [
   { source: 'node_modules/gsap/dist/gsap.min.js', destination: 'source/vendor/gsap.min.js' },
   { source: 'node_modules/gsap/dist/ScrollTrigger.min.js', destination: 'source/vendor/ScrollTrigger.min.js' },
+  { source: 'node_modules/gsap/dist/Flip.min.js', destination: 'source/vendor/Flip.min.js' },
   // Add more assets to copy here if needed
 ];
 
