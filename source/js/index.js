@@ -85,7 +85,6 @@ async function fetchAndInsertContent(pathToPage, thisElement) {
     }
 }
 
-
 //
 // Functions
 //
