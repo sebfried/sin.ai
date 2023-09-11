@@ -11,51 +11,75 @@
     <link rel="stylesheet" href="/css/noscript-style.css" type="text/css">
   </noscript>
 </head>
-<!-- next
-* replace href with event listener to trigger page content fetch.
-* on image click
-  * move image to position
-  * load content
-  * expand area
-  * fade in content
+<!--
+
+  * add menu bar
+    * create logo
+    * add logo
+
+  * add footer
+    * social media images (später im menü)
+    * copyright
+    * agb
+    * datenschutz
+    * impressum
+    * one page, english
+    * nofollow, noindex
+    * chatgpt -> explain situation
+    * Name: Legal Notice and Privacy Policy
+
+  * finalize animations
+
+  * finalize image selection
+    * upscale images
+    * add image metadata
+      * check document
+
+  * finalize image pages
+    * add image titles, tags and descriptions (marketing texts)
+    * add download buttons (a download attribute)
+
+  * seo (future)
+    * check how to get images in search (search: wallpaper)
+
 -->
+
 <body>
   <div class="preloader"></div>
-  <!-- <div class="menu-bar"><a href="/">Home</a></div> -->
-  <div class="content">
-    <div class="lazy image-column">
-      <div style="background-color:aqua">
-        <a id="_6" href="6.html">
-          <img src="/img/art/6.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
-        </a>
-      </div>
-      <div>
-        <a id="_5" href="#_5">
-          <img src="/img/art/5.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
-        </a>
-      </div>
-      <div>
-        <a id="_4" href="#_4">
-          <img src="/img/art/4.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
-        </a>
-      </div>
-      <div>
-        <a id="_3" href="#_3">
-          <img src="/img/art/3.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
-        </a>
-      </div>
-      <div>
-        <a id="_2" href="#_2">
-          <img src="/img/art/2.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
-        </a>
-      </div>
-      <div>
-        <a id="_1" href="#_1">
-          <img src="/img/art/1.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
-        </a>
-      </div>
+  <div class="menu-bar"><a href="/">Sin.ai</a></div>
+  <div class="content image-column">
+    <div>
+      <a id="_6" href="6.html">
+        <img src="/img/art/6.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
+      </a>
+    </div>
+    <div>
+      <a id="_5" href="#_5">
+        <img src="/img/art/5.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
+      </a>
+    </div>
+    <div>
+      <a id="_4" href="#_4">
+        <img src="/img/art/4.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
+      </a>
+    </div>
+    <div>
+      <a id="_3" href="#_3">
+        <img src="/img/art/3.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
+      </a>
+    </div>
+    <div>
+      <a id="_2" href="#_2">
+        <img src="/img/art/2.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
+      </a>
+    </div>
+    <div>
+      <a id="_1" href="#_1">
+        <img src="/img/art/1.png" loading="lazy" data-width="1376" data-height="864" data-aspect-ratio="16:9" alt="">
+      </a>
     </div>
   </div>
+  <div class="footer"><a href="/">Sin.ai</a></div>
   <script src="/vendor/gsap.min.js"></script>
   <script src="/vendor/ScrollTrigger.min.js"></script>
   <script src="/vendor/Flip.min.js"></script>
