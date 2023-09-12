@@ -108,6 +108,34 @@ body {
   }
 }
 
+/* Buttons */
+
+.wallpaper-button {
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  padding: 15px 25px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #008CBA;
+  border: none;
+  border-radius: 15px;
+  transition-duration: 0.4s;
+}
+
+.wallpaper-button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.wallpaper-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
 /* Image Loading Indicator
 
 .image-overlay {
