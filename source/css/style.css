@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
 }
 
 body {
@@ -27,7 +28,6 @@ body {
 .menu-bar a {
   color: darkred;
   text-decoration: none;
-  font-family: sans-serif;
   font-size: 2em;
 }
 
@@ -79,6 +79,25 @@ body {
 .content .active {
   height: auto;
   opacity: 1;
+}
+
+/* Image Info */
+
+.image-info {
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.image-info h2 {
+  padding: 15px;
+}
+
+.image-info p {
+  padding-left: 15px;
+}
+
+.download-area {
+  padding: 15px;
 }
 
 /* Page Loading Indicator */
