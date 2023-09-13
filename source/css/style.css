@@ -14,26 +14,47 @@ body {
   color: white;
 }
 
+.menu-bar-container {
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  background: linear-gradient(to bottom, black 5%, transparent);
+  background-size: 100% 100%;
+  background-position: center top;
+  pointer-events: none;
+}
+
 .menu-bar {
-  /* background-color: #0f0f0f; */
-  /* background-color: rgba(0,0,0,0.9); */
-  /* z-index: 1;
-  position: fixed; */
-  width: var(--content-width);
+  max-width: var(--content-width);
   margin: 0 auto;
-  padding: 20px 5px;
+  padding: 20px 5px 40px 5px;
   box-sizing: border-box;
+  pointer-events: none;
 }
 
 .menu-bar a {
-  color: darkred;
-  text-decoration: none;
-  font-size: 2em;
+  pointer-events: auto;
+}
+
+.menu-bar .logo {
+  height: 77px;
+  width: auto;
+  animation: colorChange 7s infinite alternate;
+}
+
+/* Define the animation */
+@keyframes colorChange {
+  0% {
+      filter: hue-rotate(30deg); /* Start with the original color */
+  }
+  100% {
+      filter: hue-rotate(-80deg); /* End with a full hue rotation (360 degrees) */
+  }
 }
 
 .footer {
   /* background-color: #0f0f0f; */
-  width: var(--content-width);
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
@@ -60,6 +81,7 @@ body {
 .content img {
   max-width: 100%;
   margin: 60px 0;
+  border-radius: 15px;
 }
 
 .content {
@@ -84,8 +106,9 @@ body {
 /* Image Info */
 
 .image-info {
-  border: 1px solid white;
-  border-radius: 5px;
+  border: 2px solid magenta;
+  border-radius: 15px;
+  animation: colorChange 7s infinite alternate;
 }
 
 .image-info h2 {
