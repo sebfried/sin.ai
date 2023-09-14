@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 scrollTrigger: {
                     trigger: image, // The image itself is the trigger
                     start: "top 80%", // Animation starts when the top of the image reaches 80% of the viewport height
-                    end: "top 20%", // Animation ends when the top of the image reaches 20% of the viewport height
+                    end: "top 30%", // Animation ends when the top of the image reaches 20% of the viewport height
                     scrub: true, // Smooth animation during scrolling
                 },
             }

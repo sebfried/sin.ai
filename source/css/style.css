@@ -24,6 +24,18 @@ body {
   pointer-events: none;
 }
 
+.bottom-gradient {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1;
+  background: linear-gradient(to top, black 5%, transparent);
+  background-size: 100% 100%;
+  background-position: center bottom;
+  pointer-events: none;
+}
+
 .menu-bar {
   max-width: var(--content-width);
   margin: 0 auto;
@@ -45,10 +57,13 @@ body {
 /* Define the animation */
 @keyframes colorChange {
   0% {
-      filter: hue-rotate(30deg); /* Start with the original color */
+    filter: hue-rotate(30deg);
+    /* Start with the original color */
   }
+
   100% {
-      filter: hue-rotate(-80deg); /* End with a full hue rotation (360 degrees) */
+    filter: hue-rotate(-80deg);
+    /* End with a full hue rotation (360 degrees) */
   }
 }
 
@@ -71,7 +86,8 @@ body {
 .content {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Optional: Center the images horizontally */
+  align-items: center;
+  /* Optional: Center the images horizontally */
   width: var(--content-width);
   max-width: 100%;
   margin: 0 auto;
@@ -140,10 +156,12 @@ body {
     transform: scale(0.6);
     opacity: 0.6;
   }
+
   50% {
     transform: scale(1);
     opacity: 1;
   }
+
   100% {
     transform: scale(0.6);
     opacity: 0.6;
@@ -176,6 +194,7 @@ body {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
 
 
 /* Image Loading Indicator
