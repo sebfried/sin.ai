@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     changeImageClicks();
+    giveTouchTooltip();
 });
 
 function changeImageClicks() {
@@ -84,6 +85,13 @@ async function fetchAndInsertContent(pathToPage, thisElement) {
         console.error('Error fetching and inserting content:', error);
     }
 }
+
+function giveTouchTooltip() {
+    if ('ontouchstart' in window || navigator.maxTouchPoints) {
+        // window.alert("touch!");
+      }
+}
+
 
 //
 // Functions
