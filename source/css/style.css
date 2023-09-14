@@ -57,7 +57,7 @@ body {
   box-sizing: border-box;
   max-width: 100%;
   margin: 0 auto;
-  padding: 60px 15px 20px 15px;
+  padding: 30px 15px 20px 15px;
 }
 
 .content img {
@@ -202,6 +202,12 @@ body {
   }
 }
 
+/* Media Queries */
+@media screen and (max-width: 1366px) and (orientation: landscape) {
+  :root {
+    --content-width: 60vw;
+  }
+}
 
 
 /* Image Loading Indicator
