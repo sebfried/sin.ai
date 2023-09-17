@@ -7,8 +7,10 @@
   padding: 0;
   /* font-family: 'Anek Kannada', sans-serif; */
   font-family: 'Inter', sans-serif;
-  font-feature-settings: "cpsp", "frac", "zero", "ss01", "cv05", "cv10", "cv11"; /* Inter */
-  font-variation-settings: "slnt" 0; /* Inter -10 – 0 */
+  font-feature-settings: "cpsp", "frac", "zero", "ss01", "cv05", "cv10", "cv11";
+  /* Inter */
+  font-variation-settings: "slnt" 0;
+  /* Inter -10 – 0 */
 }
 
 /* @font-face {
@@ -118,9 +120,11 @@ body {
 /* Image Info */
 
 .image-info {
-  border: 2px solid magenta;
+  border: 3px solid magenta;
   border-radius: 15px;
   animation: colorChange 7s infinite alternate;
+  background: rgb(30, 0, 78);
+  background: linear-gradient(132deg, rgb(27, 0, 71) 0%, rgb(35, 0, 77) 100%);
 }
 
 .image-info h2 {
