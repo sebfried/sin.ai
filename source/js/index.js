@@ -73,6 +73,7 @@ async function fetchAndInsertContent(pathToPage, thisElement) {
 
         if (fetchedContent) {
             const parentElement = thisElement.parentNode;
+            scrollToTop();
             parentElement.appendChild(fetchedContent.cloneNode(true));
             const imageInfo = parentElement.querySelector('.image-info');
             const state = Flip.getState(imageInfo, { props: "opacity" });
@@ -89,8 +90,26 @@ async function fetchAndInsertContent(pathToPage, thisElement) {
 function giveTouchTooltip() {
     if ('ontouchstart' in window || navigator.maxTouchPoints) {
         // window.alert("touch!");
-      }
+    }
 }
+
+async function scrollToTop() {
+    const container = document.getElementById('_6').parentNode;
+    console.log(container.scrollTop);
+    if (container) {
+        const currentScrollTop = container.scrollTop;
+        gsap.to(container, {
+            scrollTop: 0,
+            duration: 1,
+            ease: "power2.inOut",
+            onComplete: () => {
+                // Do something when the animation is complete if needed
+            }
+        });
+    }
+}
+
+
 
 
 //
