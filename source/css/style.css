@@ -125,11 +125,12 @@ body {
   animation: colorChange 7s infinite alternate;
   background: rgb(30, 0, 78);
   background: linear-gradient(125deg, rgb(17, 0, 46) 0%, rgb(24, 0, 65) 100%);
-  margin-top: 20px;
+  margin-top: 26px;
 }
 
 .image-info h2 {
-  padding: 15px;
+  padding-top: 16px;
+  padding-bottom: 15px;
   font-weight: 800;
   font-size: 2em;
   font-stretch: 100%;
@@ -139,7 +140,7 @@ body {
 
 .image-info span {
   font-size: 79%;
-  padding-top: 18px;
+  padding-top: 26px;
   padding-left: 15px;
   padding-right: 15px;
   font-weight: 700;
@@ -158,7 +159,8 @@ body {
 
 .download-area {
   box-sizing: border-box;
-  padding: 15px;
+  padding-top: 26px;
+  padding-bottom: 36px;
   width: 100%;
   text-align: center;
 }
@@ -166,9 +168,8 @@ body {
 select {
   border: 3px solid rgb(171, 0, 214);
   border-radius: 15px;
-  animation: colorChange 7s infinite alternate;
-  background: rgb(93, 0, 243);
-  background: linear-gradient(125deg, rgb(17, 0, 46) 0%, rgb(24, 0, 65) 100%);
+  /* animation: colorChange 7s infinite alternate; */
+  background: transparent;
   color: #ffffff;
   padding: 15px 25px;
   font-size: 20px;
@@ -183,31 +184,41 @@ select {
   background-repeat: no-repeat;
   background-position: right 0.7rem top 50%;
   background-size: 0.65rem auto;
+  min-width: 200px;
 }
 
-.wallpaper-button {
+select:focus {
+  outline: none;
+}
+
+select:hover {
+  background-color: rgba(171, 0, 214, 0.1);
+  color: white;
+}
+
+a.wallpaper-button {
   color: #ffffff;
   padding: 15px 25px;
   font-size: 20px;
   text-align: center;
   display: inline-block; /* Change from "block" to "inline-block" */
-  margin: 15px auto; /* Center horizontally */
+  margin: 10px auto; /* Center horizontally */
   background-color: rgb(171, 0, 214);
   border: none;
   border-radius: 15px;
   transition-duration: 0.4s;
   text-decoration: none;
+  min-width: 200px;
 }
 
 
-.wallpaper-button:hover {
+a.wallpaper-button:hover {
   background-color: #4CAF50;
   color: white;
 }
 
-.wallpaper-button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+a.wallpaper-button:active {
+  box-shadow: 0 5px #333333;
   transform: translateY(4px);
 }
 
