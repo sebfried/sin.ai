@@ -120,11 +120,11 @@ body {
 /* Image Info */
 
 .image-info {
-  border: 3px solid magenta;
+  border: 3px solid rgb(171, 0, 214);
   border-radius: 15px;
   animation: colorChange 7s infinite alternate;
   background: rgb(30, 0, 78);
-  background: linear-gradient(132deg, rgb(27, 0, 71) 0%, rgb(35, 0, 77) 100%);
+  background: linear-gradient(125deg, rgb(17, 0, 46) 0%, rgb(24, 0, 65) 100%);
 }
 
 .image-info h2 {
