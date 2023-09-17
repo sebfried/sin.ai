@@ -7,10 +7,11 @@
   padding: 0;
   /* font-family: 'Anek Kannada', sans-serif; */
   font-family: 'Inter', sans-serif;
-  font-feature-settings: "cpsp", "frac", "zero", "ss01", "cv05", "cv10", "cv11";
   /* Inter */
+  font-feature-settings: "cpsp", "frac", "zero", "ss01", "cv05", "cv10", "cv11";
+  /* Inter Italic: -10 – 0 */
   font-variation-settings: "slnt" 0;
-  /* Inter -10 – 0 */
+  text-shadow: 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.3);
 }
 
 /* @font-face {
@@ -105,7 +106,6 @@ body {
   height: 0;
   opacity: 0;
   overflow: hidden;
-  margin-top: 20px;
 }
 
 .single-image .image-info {
@@ -125,6 +125,7 @@ body {
   animation: colorChange 7s infinite alternate;
   background: rgb(30, 0, 78);
   background: linear-gradient(125deg, rgb(17, 0, 46) 0%, rgb(24, 0, 65) 100%);
+  margin-top: 20px;
 }
 
 .image-info h2 {
@@ -132,6 +133,17 @@ body {
   font-weight: 800;
   font-size: 2em;
   font-stretch: 100%;
+  letter-spacing: 0.01em;
+}
+
+.image-info span {
+  font-size: 79%;
+  padding-top: 18px;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: right;
+  font-weight: 700;
+  text-decoration: overline;
 }
 
 .image-info p {
