@@ -1,3 +1,5 @@
+gsap.registerPlugin(Flip);
+
 // Wait for the document to be ready
 document.addEventListener("DOMContentLoaded", function () {
     // Get all the images in the column
@@ -31,6 +33,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function changeImageClicks() {
     const fetchLinks = document.querySelectorAll(".content a");
+    const images = document.querySelectorAll(".content img");
+
+    images.forEach(image => {
+
+        image.addEventListener("click", function () {
+            if (!this.parentNode.classList.contains("fetched")) {
+                const offsetTop = this.getBoundingClientRect().top + window.scrollY - 200;
+                const animationDuration = 500; // Adjust the animation duration as needed
+                window.scrollTo({ top: offsetTop, behavior: 'smooth', duration: animationDuration });
+            }
+        });
+    });
 
     fetchLinks.forEach(link => {
         link.addEventListener("click", function (event) {
@@ -57,8 +71,6 @@ function changeImageClicks() {
     });
 }
 
-gsap.registerPlugin(Flip);
-
 async function fetchAndInsertContent(pathToPage, thisElement) {
     try {
         const response = await fetch(pathToPage);
@@ -73,7 +85,6 @@ async function fetchAndInsertContent(pathToPage, thisElement) {
 
         if (fetchedContent) {
             const parentElement = thisElement.parentNode;
-            scrollToTop();
             parentElement.appendChild(fetchedContent.cloneNode(true));
             const imageInfo = parentElement.querySelector('.image-info');
             const state = Flip.getState(imageInfo, { props: "opacity" });
@@ -93,21 +104,6 @@ function giveTouchTooltip() {
     }
 }
 
-async function scrollToTop() {
-    const container = document.getElementById('_6').parentNode;
-    console.log(container.scrollTop);
-    if (container) {
-        const currentScrollTop = container.scrollTop;
-        gsap.to(container, {
-            scrollTop: 0,
-            duration: 1,
-            ease: "power2.inOut",
-            onComplete: () => {
-                // Do something when the animation is complete if needed
-            }
-        });
-    }
-}
 
 
 
