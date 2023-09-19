@@ -3,7 +3,8 @@ const path = require('path');
 const pug = require('pug');
 
 const sourceDirectory = path.join(__dirname, '..', 'source');
-const options = { 
+const options = {
+    basedir: "source",
     pretty: true
 };
 
