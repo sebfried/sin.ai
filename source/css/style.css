@@ -1,5 +1,6 @@
 :root {
   --content-width: 1000px;
+  font-size: 12px;
 }
 
 * {
@@ -13,16 +14,6 @@
   font-variation-settings: "slnt" 0;
   text-shadow: 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.3);
 }
-
-/* @font-face {
-  font-display: swap;
-  font-family: 'Anek Kannada';
-  font-style: normal;
-  font-weight: 100 800;
-  font-stretch: 75% 125%;
-  src: url('/fonts/anek-kannada-v5-latin-variable.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-} */
 
 @font-face {
   font-display: swap;
@@ -94,8 +85,7 @@ body {
   vertical-align: middle;
 }
 
-/* .art-container {
-} */
+/* .art-container */
 
 .image-column .art-container {
   margin-top: 160px;
@@ -133,17 +123,18 @@ body {
 }
 
 .image-info h2 {
-  padding-top: 16px;
-  padding-bottom: 15px;
+  /* padding-top: 16px; */
+  /* padding-bottom: 15px; */
+  padding: 16px 15px 15px 15px;
   font-weight: 800;
-  font-size: 2em;
+  font-size: 3rem;
   font-stretch: 100%;
   letter-spacing: 0.01em;
   text-align: center;
 }
 
 .image-info span {
-  font-size: 79%;
+  font-size: 1rem;
   padding-top: 26px;
   padding-left: 15px;
   padding-right: 15px;
@@ -163,8 +154,9 @@ body {
 
 .download-area {
   box-sizing: border-box;
-  padding-top: 26px;
-  padding-bottom: 36px;
+  /* padding-top: 26px; */
+  /* padding-bottom: 36px; */
+  padding: 26px 15px 36px 15px;
   width: 100%;
   text-align: center;
 }
@@ -176,9 +168,9 @@ select {
   background: transparent;
   color: #ffffff;
   padding: 15px 0px 15px 18px;
-  font-size: 20px;
+  font-size: 1.6rem;
   display: inline-block;
-  margin: 0 5px;
+  margin: 10px 5px;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -188,7 +180,7 @@ select {
   background-repeat: no-repeat;
   background-position: right 0.7rem top 50%;
   background-size: 0.65rem auto;
-  min-width: 200px;
+  width: 250px;
 }
 
 select:focus {
@@ -202,8 +194,8 @@ select:hover {
 
 a.wallpaper-button {
   color: #ffffff;
-  padding: 18px 25px;
-  font-size: 20px;
+  padding: 18px 5px;
+  font-size: 1.6rem;
   text-align: center;
   display: inline-block; /* Change from "block" to "inline-block" */
   margin: 0px 5px; /* Center horizontally */
@@ -212,7 +204,7 @@ a.wallpaper-button {
   border-radius: 15px;
   transition-duration: 0.4s;
   text-decoration: none;
-  min-width: 200px;
+  width: 250px;
 }
 
 
@@ -255,7 +247,7 @@ a.wallpaper-button:active {
   color: darkred;
   text-decoration: none;
   font-family: sans-serif;
-  font-size: 1.5em;
+  font-size: 1.6rem;
 }
 
 /* Page Loading Indicator */
@@ -277,7 +269,7 @@ span.touchit {
   height: 20px;
   line-height: 20px;
   padding: 10px;
-  font-size: 14px;
+  font-size: 1.2rem;
   text-align: center;
   color: rgb(113, 157, 171);
   background: rgb(255, 255, 255);
@@ -352,6 +344,21 @@ span.touchit:after {
   }
 }
 
+/* Media Queries */
+@media screen and (max-width: 670px) {
+  .image-info h2 {
+    font-size: 2rem;
+  }
+  select.dropdown, a.wallpaper-button {
+    font-size: 1.4rem;
+    width: 200px;
+    box-sizing: border-box;
+    border-width: 2px;
+  }
+  .image-info {
+    border-width: 1px;
+  }
+}
 
 /* Image Loading Indicator
 
