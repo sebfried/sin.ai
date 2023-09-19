@@ -89,7 +89,11 @@ async function fetchAndInsertContent(pathToPage, thisElement) {
             const imageInfo = parentElement.querySelector('.image-info');
             const state = Flip.getState(imageInfo, { props: "opacity" });
             imageInfo.classList.add("active");
-            Flip.from(state);
+            Flip.from(state, {
+                onComplete: () => {
+                    changeDownloadLink();
+                }
+            });
         } else {
             console.warn('The .content element was not found in the fetched page.');
         }
