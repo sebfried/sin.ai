@@ -39,9 +39,13 @@ function changeImageClicks() {
 
         image.addEventListener("click", function () {
             if (!this.parentNode.classList.contains("fetched")) {
-                const offsetTop = this.getBoundingClientRect().top + window.scrollY - 200;
-                const animationDuration = 500; // Adjust the animation duration as needed
-                window.scrollTo({ top: offsetTop, behavior: 'smooth', duration: animationDuration });
+                const currentPixelToTop = this.getBoundingClientRect().top;
+                const desiredPixelToTop = 150;
+                if ( currentPixelToTop > desiredPixelToTop) {
+                    const offsetTop = currentPixelToTop + window.scrollY - desiredPixelToTop;
+                    const animationDuration = 500; // Adjust the animation duration as needed
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth', duration: animationDuration });
+                }
             }
         });
     });
