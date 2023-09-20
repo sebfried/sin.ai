@@ -40,7 +40,7 @@ function changeImageClicks() {
         image.addEventListener("click", function () {
             if (!this.parentNode.classList.contains("fetched")) {
                 const currentPixelToTop = this.getBoundingClientRect().top;
-                const desiredPixelToTop = 150;
+                const desiredPixelToTop = 170;
                 if ( currentPixelToTop > desiredPixelToTop) {
                     const offsetTop = currentPixelToTop + window.scrollY - desiredPixelToTop;
                     const animationDuration = 500; // Adjust the animation duration as needed
