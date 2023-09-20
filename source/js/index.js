@@ -1,79 +1,131 @@
-gsap.registerPlugin(Flip);
-
 // Wait for the document to be ready
 document.addEventListener("DOMContentLoaded", function () {
+    initImageScrollAnimations();
+    initImageClicks();
+    initLinkClicks();
+});
+
+function initImageScrollAnimations() {
     // Get all the images in the column
     const images = document.querySelectorAll(".image-column > div");
 
     // Loop through each image and create the scroll animation
     images.forEach((image) => {
-        gsap.fromTo(
-            image,
-            {
-                opacity: 0, // Start with 0 opacity (invisible)
-                y: 100, // Start 100 pixels below its original position
-            },
-            {
-                opacity: 1, // End with full opacity (visible)
-                y: 0, // End at its original position
-                duration: 1, // Duration of the animation (in seconds)
-                scrollTrigger: {
-                    trigger: image, // The image itself is the trigger
-                    start: "top 80%", // Animation starts when the top of the image reaches 80% of the viewport height
-                    end: "top 30%", // Animation ends when the top of the image reaches 20% of the viewport height
-                    scrub: true, // Smooth animation during scrolling
-                },
-            }
-        );
-    });
-
-    changeImageClicks();
-    giveTouchTooltip();
-});
-
-function changeImageClicks() {
-    const fetchLinks = document.querySelectorAll(".content a");
-    const images = document.querySelectorAll(".content img");
-
-    images.forEach(image => {
-
-        image.addEventListener("click", function () {
-            if (!this.parentNode.classList.contains("fetched")) {
-                const currentPixelToTop = this.getBoundingClientRect().top;
-                const desiredPixelToTop = 170;
-                if ( currentPixelToTop > desiredPixelToTop) {
-                    const offsetTop = currentPixelToTop + window.scrollY - desiredPixelToTop;
-                    const animationDuration = 500; // Adjust the animation duration as needed
-                    window.scrollTo({ top: offsetTop, behavior: 'smooth', duration: animationDuration });
-                }
-            }
-        });
-    });
-
-    fetchLinks.forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
-
-            if (this.classList.contains("fetched")) {
-                // Collapse and remove image info
-                const imageInfo = this.parentNode.querySelector(".image-info");
-                const state = Flip.getState(imageInfo, { props: "opacity" });
-                imageInfo.classList.remove("active");
-                Flip.from(state, {
-                    onComplete: () => {
-                        imageInfo.remove()
-                    }
-                });;
-                this.classList.remove("fetched");
-            } else {
-                // Add and expand image info
-                const linkHref = this.getAttribute("href");
-                fetchAndInsertContent(linkHref, this);
-                this.classList.add("fetched");
-            }
-        });
+        createScrollAnimation(image);
     });
 }
+
+function createScrollAnimation(image) {
+    // Use GSAP to animate the image
+    gsap.fromTo(
+        image,
+        {
+            opacity: 0,
+            y: 100,
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: image,
+                start: "top 80%",
+                end: "top 30%",
+                scrub: true,
+            },
+        }
+    );
+}
+
+function initImageClicks() {
+    const images = document.querySelectorAll(".content img");
+
+    images.forEach((image) => {
+        image.addEventListener("click", handleImageClick);
+    });
+}
+
+function handleImageClick() {
+    if (!this.parentNode.classList.contains("fetched")) {
+        const currentPixelToTop = this.getBoundingClientRect().top;
+        const desiredPixelToTop = 170;
+        if (currentPixelToTop > desiredPixelToTop) {
+            scrollToImage(this, currentPixelToTop, desiredPixelToTop);
+        }
+    }
+}
+
+function scrollToImage(image, currentPixelToTop, desiredPixelToTop) {
+    const offsetTop = currentPixelToTop + window.scrollY - desiredPixelToTop;
+    const animationDuration = 500;
+    
+    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+
+    // You can also add a callback here if needed.
+}
+
+function initLinkClicks() {
+    const fetchLinks = document.querySelectorAll(".content a");
+
+    fetchLinks.forEach((link) => {
+        link.addEventListener("click", handleLinkClick);
+    });
+}
+
+function handleLinkClick(event) {
+    event.preventDefault();
+
+    if (this.classList.contains("fetched")) {
+        collapseImageInfo(this);
+    } else {
+        expandImageInfo(this);
+    }
+}
+
+function collapseImageInfo(link) {
+    const imageInfo = link.parentNode.querySelector(".image-info");
+
+    // Use GSAP to animate the collapse
+    gsap.to(imageInfo, {
+        height: 0,
+        opacity: 0,
+        duration: 0.5, // Adjust the animation duration as needed
+        onComplete: () => {
+            imageInfo.style.display = 'none'; // Hide the element after the animation
+        }
+    });
+
+    link.classList.remove("fetched");
+}
+
+async function expandImageInfo(link) {
+    const linkHref = link.getAttribute("href");
+    try {
+        const fetchedContent = await fetchAndInsertContent(linkHref, link);
+        if (fetchedContent) {
+            const parentElement = link.parentNode;
+            parentElement.appendChild(fetchedContent.cloneNode(true));
+
+            const imageInfo = parentElement.querySelector('.image-info');
+            imageInfo.style.display = 'block'; // Ensure the element is visible
+
+            // Use GSAP to animate the expand
+            gsap.to(imageInfo, {
+                height: 'auto',
+                opacity: 1,
+                duration: 0.5, // Adjust the animation duration as needed
+            });
+
+            link.classList.add("fetched");
+            changeDownloadLink();
+        } else {
+            console.warn('The .content element was not found in the fetched page.');
+        }
+    } catch (error) {
+        console.error('Error fetching content:', error);
+    }
+}
+
 
 async function fetchAndInsertContent(pathToPage, thisElement) {
     try {
@@ -85,26 +137,13 @@ async function fetchAndInsertContent(pathToPage, thisElement) {
         const html = await response.text();
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
-        const fetchedContent = doc.querySelector('.content > .image-info');
-
-        if (fetchedContent) {
-            const parentElement = thisElement.parentNode;
-            parentElement.appendChild(fetchedContent.cloneNode(true));
-            const imageInfo = parentElement.querySelector('.image-info');
-            const state = Flip.getState(imageInfo, { props: "opacity" });
-            imageInfo.classList.add("active");
-            Flip.from(state, {
-                onComplete: () => {
-                    changeDownloadLink();
-                }
-            });
-        } else {
-            console.warn('The .content element was not found in the fetched page.');
-        }
+        return doc.querySelector('.content > .image-info');
     } catch (error) {
-        console.error('Error fetching and inserting content:', error);
+        console.error('Error fetching content:', error);
+        throw error;
     }
 }
+
 
 function giveTouchTooltip() {
     if ('ontouchstart' in window || navigator.maxTouchPoints) {
