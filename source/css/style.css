@@ -263,6 +263,7 @@ a.wallpaper-button:active {
   text-decoration: overline;
   text-shadow: none;
   text-transform: uppercase;
+  font-weight: 800;
 }
 
 /* Page Loading Indicator */
