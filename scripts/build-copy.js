@@ -8,8 +8,8 @@ const copyOptions = {
   destinationDirectory: 'docs',
   directoriesToCopy: [],  // Empty array for wildcard-like behavior for all directories
   excludedFileTypes: ['.pug','.DS_Store'], // Files with this filetype to be excluded from all directories (optional)
-  excludedDirectories: ['modules','temp'], // Does not work for subdirectories! (optional)
-  copyFilesOnly: [ // Copy all files from a directory, except excluded file types. Use absolute paths. (optional)
+  excludedDirectories: ['modules','temp', 'pug'], // Does not work for subdirectories! (optional)
+  copyFilesOnly: [ // Copy all files from a directory, without subdirectories, except excluded file types. Use absolute paths. (optional)
     { from: './source', to: './docs' },
     // Add more source and destination paths as needed
   ]
