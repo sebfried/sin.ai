@@ -7,9 +7,9 @@ window.addEventListener('load', function () {
     ease: 'power2.out', // Use an easing function (ease out in this case)
     onComplete: function () {
       gsap.to('.preloader', { display: 'none' });
-      gsap.to('.content', { duration: 1, opacity: 1, y: -20, ease: 'power2.out' });
     }
   });
+  gsap.to('.content', { duration: 1, opacity: 1, y: -20, ease: 'power2.out' });
 });
 
 function changeDownloadLink() {
