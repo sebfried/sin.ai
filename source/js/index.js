@@ -58,7 +58,7 @@ function handleImageClick() {
 function scrollToImage(image, currentPixelToTop, desiredPixelToTop) {
     const offsetTop = currentPixelToTop + window.scrollY - desiredPixelToTop;
     const animationDuration = 500;
-    
+
     window.scrollTo({ top: offsetTop, behavior: 'smooth' });
 
     // You can also add a callback here if needed.
@@ -92,6 +92,8 @@ function collapseImageInfo(link) {
         duration: 0.5, // Adjust the animation duration as needed
         onComplete: () => {
             imageInfo.style.display = 'none'; // Hide the element after the animation
+            // After opening or closing an accordion
+            ScrollTrigger.refresh();
         }
     });
 
@@ -114,6 +116,10 @@ async function expandImageInfo(link) {
                 height: 'auto',
                 opacity: 1,
                 duration: 0.5, // Adjust the animation duration as needed
+                onComplete: () => {
+                    // After opening or closing an accordion
+                    ScrollTrigger.refresh();
+                }
             });
 
             link.classList.add("fetched");
