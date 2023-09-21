@@ -83,6 +83,9 @@ body {
   height: auto;
   border-radius: 15px;
   vertical-align: middle;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent); /* Create a pulsating effect */
+  background-size: 200% 100%; /* Twice the width to cover the full width during animation */
+  animation: image-pulsate 2s infinite; 
 }
 
 /* .art-container */
@@ -363,6 +366,15 @@ span.touchit:after {
   100% {
     transform: scale(0.6);
     border-color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+@keyframes image-pulsate {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }
 
