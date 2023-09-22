@@ -4,12 +4,15 @@ const pwaAssetGenerator = require('pwa-asset-generator');
   const options = {
     background: 'black',
     manifest: './source',
-    path: '/pwa',
-    manifest: './source/manifest.json'
+    pathOverride: '/img/icons',
+    manifest: './source/manifest.json',
+    favicon: true,
+    mstile: true,
+    quality: 80
   };
 
-  const sourceImage = './source/img/logo.png';
-  const outputFolder = './source/pwa';
+  const sourceImage = './source/img/logos/sinai-logo-max.png';
+  const outputFolder = './source/img/icons';
 
   const { savedImages, htmlMeta, manifestJsonContent } = await pwaAssetGenerator.generateImages(
     sourceImage,
