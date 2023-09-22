@@ -46,18 +46,16 @@ function handleImageClick() {
         const currentPixelToTop = this.getBoundingClientRect().top;
         const desiredPixelToTop = 170;
         if (currentPixelToTop > desiredPixelToTop) {
-            scrollToTop(this, currentPixelToTop, desiredPixelToTop);
+            scrollClickedImageToTop(currentPixelToTop, desiredPixelToTop);
         }
     }
 }
 
-function scrollToTop(image, currentPixelToTop, desiredPixelToTop) {
+function scrollClickedImageToTop(currentPixelToTop, desiredPixelToTop) {
     const offsetTop = currentPixelToTop + window.scrollY - desiredPixelToTop;
     const animationDuration = 500;
 
     window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-
-    // You can also add a callback here if needed.
 }
 
 function initLinkClicks() {
