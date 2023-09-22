@@ -10,7 +10,8 @@ html(lang=lang)
         img(src=imgPath + nr + imgSlugS srcset=imgPath + nr + imgSlugHD + ' 2x' width=imgWidth height=imgHeight alt=imgAlt)
       .image-info
         span #{date}
-        h2 #{bodyTitle}
+        h1 #{bodyTitle}
+        h2 #{bodySubtitle}
         .download-area
           select.dropdown
             option(value=imgPath + nr + imgSlugHD) HD (1920x1200)

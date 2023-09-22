@@ -56,10 +56,13 @@ body {
 
 .menu-bar a {
   pointer-events: auto;
+  display: block;
+  padding-left: 3px;
+  padding-top: 2px;
 }
 
 .menu-bar .logo {
-  height: 77px;
+  height: 72px;
   width: auto;
   animation: colorChange 7s infinite alternate;
 }
@@ -125,7 +128,7 @@ body {
   margin-top: 26px;
 }
 
-.image-info h2 {
+.image-info h1 {
   /* padding-top: 16px; */
   /* padding-bottom: 15px; */
   padding: 16px 15px 15px 15px;
@@ -133,6 +136,10 @@ body {
   font-size: 3rem;
   font-stretch: 100%;
   letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.image-info h2 {
   text-align: center;
 }
 
@@ -317,7 +324,7 @@ span.touchit:after {
   text-align: left;
 }
 
-.legal h2 {
+.legal h1 {
   padding-bottom: 10px;
   max-width: 600px;
 }
@@ -400,7 +407,7 @@ span.touchit:after {
 
 /* Media Queries */
 @media screen and (max-width: 670px) {
-  .image-info h2 {
+  .image-info h1 {
     font-size: 2rem;
   }
   select.dropdown, a.wallpaper-button {
