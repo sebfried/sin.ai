@@ -60,7 +60,7 @@ body {
 
 .menu-bar a {
   pointer-events: auto;
-  display: block;
+  display: inline-block;
   padding-left: 3px;
   padding-top: 2px;
 }

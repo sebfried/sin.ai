@@ -1,2 +1,0 @@
-/* minified */
-(function(){window.onload=function(){"use strict";"serviceWorker"in navigator&&navigator.serviceWorker.register("./pwa/sw.js").then((function(e){alert("Service Worker Registered",e)})).catch((function(e){alert("Service Worker Failed to Register",e)}))}}).call(this);
