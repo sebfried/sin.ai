@@ -1,8 +1,11 @@
-.loading-indicator,
-.image-overlay {
+.content {
+  opacity: 1;
+}
+
+.preloader {
   display: none;
 }
 
-.content {
-  opacity: 1;
+.download-area select {
+  display: none;
 }
