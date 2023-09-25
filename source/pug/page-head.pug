@@ -1,3 +1,31 @@
+// Build Date
+- const currentDate = new Date();
+- const year = currentDate.getFullYear();
+- const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Add 1 to month since it's zero-based
+- const day = currentDate.getDate().toString().padStart(2, '0');
+- const formattedDate = `${year}${month}${day}`;
+
+// Default Variables
+- var lang = lang || "en"
+- var headTitle = headTitle || "Sin.ai"
+- var metaDescription = metaDescription || "Sin.ai"
+- var date = formattedDate || date
+- var schemaName = "schema name"
+- var schemaDescription = "schemaDescription"
+- var schemaImage = "schemaImage"
+- var twitterCard = "twitterCard"
+- var twitterSite = "twitterSite"
+- var twitterTitle = "twitterTitle"
+- var twitterDescription = "twitterDescription"
+- var twitterCreator = "twitterCreator"
+- var twitterImage = "twitterImage"
+- var ogTitle = "ogTitle"
+- var ogType = "ogType"
+- var ogUrl = "ogUrl"
+- var ogImage = "ogImage"
+- var ogDescription = "ogDescription"
+- var ogSiteName = "ogSiteName"
+
 title #{headTitle}
 meta(charset='UTF-8')
 meta(name='viewport' content='width=device-width,initial-scale=1')
@@ -15,9 +43,9 @@ meta(name='date' content=date)
 //
 //
 // Schema.org markup (Standard for most networks)
-meta(itemprop='name' content='{Site Name}')
-meta(itemprop='description' content='{Description}')
-meta(itemprop='image' content='{Site logo -  URL}')
+meta(itemprop='name' content=schemaName)
+meta(itemprop='description' content=schemaDescription)
+meta(itemprop='image' content=schemaImage)
 //
 // You can validate your schema markup using the Google Structured Data Testing Tool.
 // 
@@ -26,24 +54,24 @@ meta(itemprop='image' content='{Site logo -  URL}')
 // https://developer.x.com/en/docs/twitter-for-websites/cards/overview/markup
 //
 // The card type, which will be one of “summary”, “summary_large_image”, “app”, or “player”.
-meta(name='twitter:card' content='summary')
+meta(name='twitter:card' content=twitterCard)
 //
 // @username of website. Either twitter:site or twitter:site:id is required.
-meta(name='twitter:site' content='{Site Name}')
+meta(name='twitter:site' content=twitterSite)
 //
 // Title of content (max 70 characters)
-meta(name='twitter:title' content='{Page Title}')
+meta(name='twitter:title' content=twitterTitle)
 //
 // Description of content (maximum 200 characters)
-meta(name='twitter:description' content='{Description}')
+meta(name='twitter:description' content=twitterDescription)
 //
 // @username of content creator
-meta(name='twitter:creator' content='{@handle}')
+meta(name='twitter:creator' content=twitterCreator)
 //
 // URL of unique image, recommended minimum dimensions of 440×220 pixels
 // URL of image to use in the card. Images must be less than 5MB in size.
 // JPG, PNG, WEBP and GIF formats are supported. Only the first frame of an animated GIF will be used. SVG is not supported.
-meta(name='twitter:image' content='{Logo or Image - URL}')
+meta(name='twitter:image' content=twitterImage)
 //
 // Pro tip: If you update a page’s Twitter Card tags, use the Twitter Card validator 
 // to force Twitter to do a fresh scrape of the URL, which will cause Twitter to pull the new social meta tag data. 
@@ -54,20 +82,20 @@ meta(name='twitter:image' content='{Logo or Image - URL}')
 // https://ogp.me/
 //
 // title or alternate title of page which displays as the headline
-meta(property='og:title' content='{Page Title}')
+meta(property='og:title' content=ogTitle)
 //
 // article (otherwise defaults to “website”)
-meta(property='og:type' content='website')
+meta(property='og:type' content=ogType)
 //
 // URL of the page
-meta(property='og:url' content='http://www.example.com/')
+meta(property='og:url' content=ogUrl)
 //
 // URL of unique image, recommended dimensions 1200×630 pixels
-meta(property='og:image' content='{Logo or Image - URL}')
+meta(property='og:image' content=ogImage)
 //
 // description of the page, of which Facebook displays 300 characters at most
-meta(property='og:description' content='{Description}')
-meta(property='og:site_name' content='{Site Name}')
+meta(property='og:description' content=ogDescription)
+meta(property='og:site_name' content=ogSiteName)
 //
 // Pro tip: If you update a page’s OG tags, use the Sharing Debugger to force Facebook to do a fresh scrape of the URL, 
 // which will cause Facebook to pull the new social meta tag data. Otherwise, it might pull from the cache instead of 
