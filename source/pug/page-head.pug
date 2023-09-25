@@ -9,3 +9,66 @@ link(rel='manifest' href='/manifest.json')
 noscript.
     <link rel="stylesheet" href="/css/noscript-style.css" type="text/css">
 meta(name='date' content=date)
+//
+//
+// Social Meta Tags
+//
+//
+// Schema.org markup (Standard for most networks)
+meta(itemprop='name' content='{Site Name}')
+meta(itemprop='description' content='{Description}')
+meta(itemprop='image' content='{Site logo -  URL}')
+//
+// You can validate your schema markup using the Google Structured Data Testing Tool.
+// 
+//
+// Twitter Card data
+// https://developer.x.com/en/docs/twitter-for-websites/cards/overview/markup
+//
+// The card type, which will be one of “summary”, “summary_large_image”, “app”, or “player”.
+meta(name='twitter:card' content='summary')
+//
+// @username of website. Either twitter:site or twitter:site:id is required.
+meta(name='twitter:site' content='{Site Name}')
+//
+// Title of content (max 70 characters)
+meta(name='twitter:title' content='{Page Title}')
+//
+// Description of content (maximum 200 characters)
+meta(name='twitter:description' content='{Description}')
+//
+// @username of content creator
+meta(name='twitter:creator' content='{@handle}')
+//
+// URL of unique image, recommended minimum dimensions of 440×220 pixels
+// URL of image to use in the card. Images must be less than 5MB in size.
+// JPG, PNG, WEBP and GIF formats are supported. Only the first frame of an animated GIF will be used. SVG is not supported.
+meta(name='twitter:image' content='{Logo or Image - URL}')
+//
+// Pro tip: If you update a page’s Twitter Card tags, use the Twitter Card validator 
+// to force Twitter to do a fresh scrape of the URL, which will cause Twitter to pull the new social meta tag data. 
+// Otherwise, it might pull from a cache instead of your updated tags.
+// 
+//
+// Open Graph data 
+// https://ogp.me/
+//
+// title or alternate title of page which displays as the headline
+meta(property='og:title' content='{Page Title}')
+//
+// article (otherwise defaults to “website”)
+meta(property='og:type' content='website')
+//
+// URL of the page
+meta(property='og:url' content='http://www.example.com/')
+//
+// URL of unique image, recommended dimensions 1200×630 pixels
+meta(property='og:image' content='{Logo or Image - URL}')
+//
+// description of the page, of which Facebook displays 300 characters at most
+meta(property='og:description' content='{Description}')
+meta(property='og:site_name' content='{Site Name}')
+//
+// Pro tip: If you update a page’s OG tags, use the Sharing Debugger to force Facebook to do a fresh scrape of the URL, 
+// which will cause Facebook to pull the new social meta tag data. Otherwise, it might pull from the cache instead of 
+// showing your updated content.
