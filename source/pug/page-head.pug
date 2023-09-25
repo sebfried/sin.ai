@@ -10,34 +10,44 @@
 - const siteImg = "https://sin.ai/img/wallpapers/1-wallpaper-artwork-hd.jpeg"
 - const instagramUrl = "https://www.instagram.com/art.sin.ai/"
 
+// temporary quickfix für pages
+if (nr)
+    - var pageImg = baseUrl + imgPath + nr + imgSlugHD
+
 // Default Variables
 // with Fallback for Pages
 - var lang = lang || "en"
 - var headTitle = headTitle || "Sin.ai"
-- var metaDescription = metaDescription || "Sin.ai"
-- var date = formattedDate || date
-- var schemaName = schemaName || headTitle
+- var metaDescription = metaDescription || headTitle
+- var date = date || formattedDate
+- var schemaName = schemaName || bodyTitle || headTitle
 - var schemaDescription = schemaDescription || metaDescription
-- var schemaImage = schemaImage || siteImg
+- var schemaImage = schemaImage || pageImg || siteImg
 - var sameAs1 = instagramUrl
-- var twitterCard = twitterCard || “summary_large_image”
+- var twitterCard = twitterCard || "summary_large_image"
 - var twitterSite = twitterSite || "art.sin.ai"
-- var twitterTitle = twitterTitle || headTitle
+- var twitterTitle = twitterTitle || bodyTitle || headTitle
 - var twitterDescription = twitterDescription || metaDescription
 - var twitterCreator = twitterCreator || "art.sin.ai"
-- var twitterImage = twitterImage || siteImg
-- var ogTitle = ogTitle || headTitle
+- var twitterImage = twitterImage || pageImg || siteImg
+- var ogTitle = ogTitle || bodyTitle || headTitle
 - var ogType = ogType || "website"
 - var ogUrl = ogUrl || baseUrl
-- var ogImage = ogImage || siteImg
+- var ogImage = ogImage || pageImg || siteImg
 - var ogDescription = ogDescription || metaDescription
 - var ogSiteName = ogSiteName || "Sin.ai"
 
+// temporary quickfix für index.pug
+- var canonicalLink = baseUrl + '/' + nr
+- if (!nr)
+    - canonicalLink = baseUrl
+
+// <head>
 title #{headTitle}
 meta(charset='UTF-8')
 meta(name='viewport' content='width=device-width,initial-scale=1')
 meta(name='description' content=metaDescription)
-link(rel='canonical' href='https://sin.ai/' + nr)
+link(rel='canonical' href=canonicalLink)
 link(rel='preload' href='/fonts/inter-var-319.woff2' as='font' type='font/woff2' crossorigin='anonymous')
 link(rel='stylesheet' href='/css/style.css' type='text/css')
 link(rel='manifest' href='/manifest.json')
