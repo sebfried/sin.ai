@@ -6,25 +6,32 @@
 - const formattedDate = `${year}${month}${day}`;
 
 // Default Variables
+- const baseUrl = "https://sin.ai"
+- const siteImg = "https://sin.ai/img/wallpapers/1-wallpaper-artwork-hd.jpeg"
+- const instagramUrl = "https://www.instagram.com/art.sin.ai/"
+
+// Default Variables
+// with Fallback for Pages
 - var lang = lang || "en"
 - var headTitle = headTitle || "Sin.ai"
 - var metaDescription = metaDescription || "Sin.ai"
 - var date = formattedDate || date
-- var schemaName = "schema name"
-- var schemaDescription = "schemaDescription"
-- var schemaImage = "schemaImage"
-- var twitterCard = "twitterCard"
-- var twitterSite = "twitterSite"
-- var twitterTitle = "twitterTitle"
-- var twitterDescription = "twitterDescription"
-- var twitterCreator = "twitterCreator"
-- var twitterImage = "twitterImage"
-- var ogTitle = "ogTitle"
-- var ogType = "ogType"
-- var ogUrl = "ogUrl"
-- var ogImage = "ogImage"
-- var ogDescription = "ogDescription"
-- var ogSiteName = "ogSiteName"
+- var schemaName = schemaName || headTitle
+- var schemaDescription = schemaDescription || metaDescription
+- var schemaImage = schemaImage || siteImg
+- var sameAs1 = instagramUrl
+- var twitterCard = twitterCard || “summary_large_image”
+- var twitterSite = twitterSite || "art.sin.ai"
+- var twitterTitle = twitterTitle || headTitle
+- var twitterDescription = twitterDescription || metaDescription
+- var twitterCreator = twitterCreator || "art.sin.ai"
+- var twitterImage = twitterImage || siteImg
+- var ogTitle = ogTitle || headTitle
+- var ogType = ogType || "website"
+- var ogUrl = ogUrl || baseUrl
+- var ogImage = ogImage || siteImg
+- var ogDescription = ogDescription || metaDescription
+- var ogSiteName = ogSiteName || "Sin.ai"
 
 title #{headTitle}
 meta(charset='UTF-8')
@@ -46,6 +53,7 @@ meta(name='date' content=date)
 meta(itemprop='name' content=schemaName)
 meta(itemprop='description' content=schemaDescription)
 meta(itemprop='image' content=schemaImage)
+meta(itemprop='sameAs' content=sameAs1)
 //
 // You can validate your schema markup using the Google Structured Data Testing Tool.
 // 
