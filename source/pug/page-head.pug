@@ -1,21 +1,21 @@
-// Build Date
+//- Build Date
 - const currentDate = new Date();
 - const year = currentDate.getFullYear();
 - const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Add 1 to month since it's zero-based
 - const day = currentDate.getDate().toString().padStart(2, '0');
 - const formattedDate = `${year}${month}${day}`;
 
-// Default Variables
+//- Default Variables
 - const baseUrl = "https://sin.ai"
 - const siteImg = "https://sin.ai/img/wallpapers/1-wallpaper-artwork-hd.jpeg"
 - const instagramUrl = "https://www.instagram.com/art.sin.ai/"
 
-// temporary quickfix für pages
+//- temporary quickfix für pages
 if (nr)
     - var pageImg = baseUrl + imgPath + nr + imgSlugHD
 
-// Default Variables
-// with Fallback for Pages
+//- Default Variables
+//- with Fallback for Pages
 - var lang = lang || "en"
 - var headTitle = headTitle || "Sin.ai"
 - var metaDescription = metaDescription || headTitle
@@ -37,12 +37,12 @@ if (nr)
 - var ogDescription = ogDescription || metaDescription
 - var ogSiteName = ogSiteName || "Sin.ai"
 
-// temporary quickfix für index.pug
+//- temporary quickfix für index.pug
 - var canonicalLink = baseUrl + '/' + nr
 - if (!nr)
     - canonicalLink = baseUrl
 
-// <head>
+//- <head>
 title #{headTitle}
 meta(charset='UTF-8')
 meta(name='viewport' content='width=device-width,initial-scale=1')
@@ -54,67 +54,67 @@ link(rel='manifest' href='/manifest.json')
 noscript.
     <link rel="stylesheet" href="/css/noscript-style.css" type="text/css">
 meta(name='date' content=date)
-//
-//
+//-
+//-
 // Social Meta Tags
-//
-//
-// Schema.org markup (Standard for most networks)
+//-
+//-
+//- Schema.org markup (Standard for most networks)
 meta(itemprop='name' content=schemaName)
 meta(itemprop='description' content=schemaDescription)
 meta(itemprop='image' content=schemaImage)
 meta(itemprop='sameAs' content=sameAs1)
-//
-// You can validate your schema markup using the Google Structured Data Testing Tool.
-// 
-//
-// Twitter Card data
-// https://developer.x.com/en/docs/twitter-for-websites/cards/overview/markup
-//
-// The card type, which will be one of “summary”, “summary_large_image”, “app”, or “player”.
+//- 
+//- You can validate your schema markup using the Google Structured Data Testing Tool.
+//- 
+//-
+//- Twitter Card data
+//- https://developer.x.com/en/docs/twitter-for-websites/cards/overview/markup
+//-
+//- The card type, which will be one of “summary”, “summary_large_image”, “app”, or “player”.
 meta(name='twitter:card' content=twitterCard)
-//
-// @username of website. Either twitter:site or twitter:site:id is required.
+//-
+//- @username of website. Either twitter:site or twitter:site:id is required.
 meta(name='twitter:site' content=twitterSite)
-//
-// Title of content (max 70 characters)
+//-
+//- Title of content (max 70 characters)
 meta(name='twitter:title' content=twitterTitle)
-//
-// Description of content (maximum 200 characters)
+//-
+//- Description of content (maximum 200 characters)
 meta(name='twitter:description' content=twitterDescription)
-//
-// @username of content creator
+//-
+//- @username of content creator
 meta(name='twitter:creator' content=twitterCreator)
-//
-// URL of unique image, recommended minimum dimensions of 440×220 pixels
-// URL of image to use in the card. Images must be less than 5MB in size.
-// JPG, PNG, WEBP and GIF formats are supported. Only the first frame of an animated GIF will be used. SVG is not supported.
+//-
+//- URL of unique image, recommended minimum dimensions of 440×220 pixels
+//- URL of image to use in the card. Images must be less than 5MB in size.
+//- JPG, PNG, WEBP and GIF formats are supported. Only the first frame of an animated GIF will be used. SVG is not supported.
 meta(name='twitter:image' content=twitterImage)
-//
-// Pro tip: If you update a page’s Twitter Card tags, use the Twitter Card validator 
-// to force Twitter to do a fresh scrape of the URL, which will cause Twitter to pull the new social meta tag data. 
-// Otherwise, it might pull from a cache instead of your updated tags.
-// 
-//
-// Open Graph data 
-// https://ogp.me/
-//
-// title or alternate title of page which displays as the headline
+//-
+//- Pro tip: If you update a page’s Twitter Card tags, use the Twitter Card validator 
+//- to force Twitter to do a fresh scrape of the URL, which will cause Twitter to pull the new social meta tag data. 
+//- Otherwise, it might pull from a cache instead of your updated tags.
+//- 
+//-
+//- Open Graph data 
+//- https://ogp.me/
+//-
+//- title or alternate title of page which displays as the headline
 meta(property='og:title' content=ogTitle)
-//
-// article (otherwise defaults to “website”)
+//-
+//- article (otherwise defaults to “website”)
 meta(property='og:type' content=ogType)
-//
-// URL of the page
+//-
+//- URL of the page
 meta(property='og:url' content=ogUrl)
-//
-// URL of unique image, recommended dimensions 1200×630 pixels
+//-
+//- URL of unique image, recommended dimensions 1200×630 pixels
 meta(property='og:image' content=ogImage)
-//
-// description of the page, of which Facebook displays 300 characters at most
+//-
+//- description of the page, of which Facebook displays 300 characters at most
 meta(property='og:description' content=ogDescription)
 meta(property='og:site_name' content=ogSiteName)
-//
-// Pro tip: If you update a page’s OG tags, use the Sharing Debugger to force Facebook to do a fresh scrape of the URL, 
-// which will cause Facebook to pull the new social meta tag data. Otherwise, it might pull from the cache instead of 
-// showing your updated content.
+//-
+//- Pro tip: If you update a page’s OG tags, use the Sharing Debugger to force Facebook to do a fresh scrape of the URL, 
+//- which will cause Facebook to pull the new social meta tag data. Otherwise, it might pull from the cache instead of 
+//- showing your updated content.
