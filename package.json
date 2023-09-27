@@ -1,7 +1,7 @@
 {
   "name": "sin.ai",
-  "version": "1.0.5",
-  "description": "private sin.ai",
+  "version": "1.0.6",
+  "description": "Sin.ai",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sebfried/sin.ai.git"

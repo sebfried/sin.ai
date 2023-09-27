@@ -66,7 +66,7 @@ body {
 }
 
 .menu-bar .logo {
-  height: 72px;
+  height: 75px;
   width: auto;
   animation: colorChange 7s infinite alternate;
 }
@@ -259,21 +259,11 @@ a.wallpaper-button:active {
 }
 
 .footer a {
-  color: rgb(171, 0, 214);
+  color: rgb(101,101,101);
   text-decoration: none;
   font-family: sans-serif;
   font-size: 1rem;
-.menu-bar .logo {
-  height: 77px;
-  width: auto;
-  animation: colorChange 7s infinite alternate;
-};
-.menu-bar .logo {
-  height: 77px;
-  width: auto;
-  animation: colorChange 7s infinite alternate;
-};
-  animation: colorChange 7s infinite alternate;
+  /* animation: colorChange 7s infinite alternate; */
   text-decoration: overline;
   text-shadow: none;
   text-transform: uppercase;
@@ -397,7 +387,7 @@ span.touchit:after {
   }
 
   100% {
-    filter: hue-rotate(-80deg);
+    filter: hue-rotate(-40deg);
     /* End with a full hue rotation (360 degrees) */
   }
 }
