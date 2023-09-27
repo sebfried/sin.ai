@@ -31,8 +31,8 @@ AddDefaultCharset UTF-8
 # </IfModule>
 
 <IfModule mod_headers.c>
-    # Set Content Security Policy (CSP) header
-    Header set Content-Security-Policy "default-src 'self';"
+    # Set Content Security Policy (CSP) header with img-src directive allowing images from 'self' and 'sin.ai'
+    Header set Content-Security-Policy "default-src 'self'; img-src 'self' sin.ai data:;"
 
     # Set X-Content-Type-Options header
     Header set X-Content-Type-Options "nosniff"
