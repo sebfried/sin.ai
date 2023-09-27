@@ -145,3 +145,15 @@ function giveTouchTooltip() {
         // window.alert("touch!");
     }
 }
+
+// Duplicate
+function changeDownloadLink() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+  
+    dropdowns.forEach(function (dropdown) {
+      dropdown.addEventListener('change', function () {
+        const downloadLink = this.nextElementSibling;
+        downloadLink.href = this.value;
+      });
+    });
+  }
