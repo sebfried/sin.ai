@@ -1,5 +1,6 @@
 {
   "name": "Sin.ai",
+  "short_name": "Sin.ai",
   "start_url": "https://sin.ai",
   "display": "standalone",
   "background_color": "black",
