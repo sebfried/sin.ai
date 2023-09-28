@@ -1,10 +1,15 @@
 {
   "name": "Sin.ai",
-  "start_url": "/",
+  "start_url": "https://sin.ai",
   "display": "standalone",
   "background_color": "black",
   "theme_color": "black",
   "icons": [
+    {
+      "src": "/img/icons/apple-icon-180.png?v3",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
     {
       "src": "/img/icons/manifest-icon-192.maskable.png?v2",
       "sizes": "192x192",
