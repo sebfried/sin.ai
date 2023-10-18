@@ -1,13 +1,16 @@
 const fs = require('fs');
 const path = require('path');
-const Sitemap = require('sitemap');
+const { SitemapStream, streamToPromise } = require('sitemap');
+const xmlFormatter = require('xml-formatter');
 
 // Configuration
 const domain = 'https://sin.ai'; // Replace with your domain
 const outputDir = path.join(__dirname, '..', 'source'); // Output directory
+const outputName = 'sitemap.xml';
 const subfolders = []; // Specify subfolders, if any
-
-const urls = [];
+const excludedUrls = ['https://sin.ai/legal'];
+let urls = []; // extra urls
+const pretty = false; // pretty sitemap
 
 // Function to crawl a directory and add URLs to the sitemap
 function crawlDirectory(directory, baseUrl) {
@@ -15,11 +18,32 @@ function crawlDirectory(directory, baseUrl) {
   for (const file of files) {
     const filePath = path.join(directory, file);
     if (fs.statSync(filePath).isDirectory()) {
-      crawlDirectory(filePath, baseUrl);
-    } else if (file.endsWith('.html')) {
-      // Remove the .html extension
-      const relativePath = path.relative(outputDir, filePath).replace('.html', '');
-      urls.push({ url: path.join(baseUrl, relativePath) });
+      // Skip directories and only crawl HTML files
+      continue;
+    }
+    if (file.endsWith('.html')) {
+      let filename = file.replace('.html', '');
+      if (filename !== 'index') {
+        // Remove the .html extension
+        let relativePath = path.relative(outputDir, filePath).replace('.html', '');
+
+        // Loop through subfolders and remove them from the URL
+        for (const subfolder of subfolders) {
+          if (relativePath.startsWith(subfolder)) {
+            // +1 to remove the leading slash
+            relativePath = relativePath.substring(subfolder.length + 1);
+          }
+        }
+
+        // Fix URL construction
+        let url = relativePath === '' ? baseUrl : `${baseUrl}/${relativePath}`;
+        //Trim trailing slashes
+        url = url.replace(/\/$/, "")
+        urls.push({ url });
+      } else {
+        // Handle the index file without .html extension
+        urls.push({ url: baseUrl });
+      }
     }
   }
 }
@@ -29,16 +53,62 @@ crawlDirectory(outputDir, domain);
 
 // Add subfolder URLs
 for (const subfolder of subfolders) {
-  crawlDirectory(path.join(outputDir, subfolder), path.join(domain, subfolder));
+  crawlDirectory(path.join(outputDir, subfolder), `${domain}/${subfolder}`);
 }
 
-// Create sitemap
-const sitemap = Sitemap.buildSitemap({
-  urls,
+// Function to remove specified URLs from an array
+function removeUrls(array, value, key) {
+  return array.filter(item => item[key] !== value);
+}
+
+excludedUrls.forEach(excludedUrl => {
+  urls = removeUrls(urls, excludedUrl, 'url');
 });
 
-// Save sitemap to a file
-const sitemapPath = path.join(outputDir, 'sitemap.xml');
-fs.writeFileSync(sitemapPath, sitemap.toString());
+// Sort the URLs with numbers in real ascending order
+urls.sort((a, b) => {
+  // Move the root URL to the top
+  if (a.url === domain) return -1;
+  if (b.url === domain) return 1;
 
-console.log(`Sitemap generated and saved to ${sitemapPath}`);
+  // Convert URLs to numbers for numeric sorting
+  const numA = parseInt(a.url.replace(/[^0-9]/g, ''), 10);
+  const numB = parseInt(b.url.replace(/[^0-9]/g, ''), 10);
+
+  // If both URLs have numbers, compare them numerically
+  if (!isNaN(numA) && !isNaN(numB)) {
+    return numA - numB;
+  }
+
+  // Sort the rest of the URLs alphabetically
+  return a.url.localeCompare(b.url);
+});
+
+// Create a writable stream for the sitemap
+const sitemapStream = new SitemapStream({ hostname: domain });
+
+// Add URLs to the stream
+urls.forEach(url => sitemapStream.write(url));
+
+// End the stream
+sitemapStream.end();
+
+// Convert the stream to a promise
+streamToPromise(sitemapStream).then(sm => {
+  // Save sitemap to a file
+  const sitemapPath = path.join(outputDir, outputName);
+  let sitemapXML = sm.toString();
+
+  // Replace occurrences of "<loc>https://sin.ai/</loc>" with "<loc>https://sin.ai</loc>" (https://github.com/ekalinin/sitemap.js/issues/403)
+  sitemapXML = sitemapXML.replace(/<loc>https:\/\/sin\.ai\/<\/loc>/g, '<loc>https://sin.ai</loc>');
+
+  if (pretty) {
+    // Format the sitemap XML for pretty printing
+    const formattedSitemapXML = xmlFormatter(sitemapXML, { collapseContent: true, lineSeparator: '\n' });
+    fs.writeFileSync(sitemapPath, formattedSitemapXML);
+  } else {
+    fs.writeFileSync(sitemapPath, sitemapXML);
+  }
+
+  console.log(`Sitemap generated and saved to ${sitemapPath}`);
+});
