@@ -18,6 +18,7 @@
     "start:copy": "node scripts/start-copy.js",
     "start:pug": "node scripts/common-pug.js",
     "pwa-asset-generator": "node scripts/common-pwa-asset-generator.js",
+    "sitemap": "node scripts/common-sitemap.js",
     "postinstall": "npm run start:copy"
   },
   "dependencies": {
