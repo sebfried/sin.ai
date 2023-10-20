@@ -10,7 +10,7 @@ const outputName = 'sitemap.xml';
 const subfolders = []; // Specify subfolders, if any
 const excludedUrls = ['https://sin.ai/legal'];
 let urls = []; // extra urls
-const pretty = false; // pretty sitemap
+const pretty = true; // pretty sitemap
 
 // Function to crawl a directory and add URLs to the sitemap
 function crawlDirectory(directory, baseUrl) {

@@ -71,6 +71,39 @@ body {
   animation: colorChange 7s infinite alternate;
 }
 
+/* Header */
+
+.header {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 20px 20px 40px 20px;
+  box-sizing: border-box;
+}
+
+.header .slogan {
+  width: 100%;
+  text-align: center;
+}
+
+.header h1.slogan {
+  padding: 20px 0;
+  font-size:  4em;
+  text-shadow: -1px -1px 0 blueviolet, 1px -1px 0 blueviolet, -1px 1px 0 blueviolet, 1px 1px 0 blueviolet;
+}
+
+.header h2.slogan {
+  padding-bottom: 11px;
+  font-size: 1.5em;
+  /* text-shadow: -1px -1px 0 blueviolet, 1px -1px 0 blueviolet, -1px 1px 0 blueviolet, 1px 1px 0 blueviolet; */
+}
+
+.header h3.slogan {
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+
 /* Content */
 
 .content {
