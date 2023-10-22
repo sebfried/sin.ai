@@ -25,3 +25,12 @@ The best way is to use mkcert.
 - Install all dependencies: `npm install`
 - Start the dev server: `npm start`
 - Build production app: `npm run build`
+
+## Update NPM Packages
+
+Do not update chalk and purgecss, for now! (no commonjs support)
+
+- npm outdated
+- npx npm-check-updates -u --target minor
+- npx npm-check-updates -u -i
+- npm i
