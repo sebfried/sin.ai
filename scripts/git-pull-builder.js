@@ -18,3 +18,5 @@ const builderTargetBranch = 'main'; // Change this to your target branch
     console.error(`An error occurred: ${error}`);
   }
 })();
+
+// TODO: Temporary .gitignore for /source and /docs (do not pull)
