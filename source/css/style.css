@@ -86,7 +86,7 @@ body {
 }
 
 .header h1.slogan {
-  padding: 20px 0;
+  padding: 32px 0;
   font-size:  4em;
   text-shadow: -1px -1px 0 blueviolet, 1px -1px 0 blueviolet, -1px 1px 0 blueviolet, 1px 1px 0 blueviolet;
 }
