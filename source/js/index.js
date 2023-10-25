@@ -17,7 +17,7 @@ function createScrollAnimation(image) {
         image,
         {
             opacity: 0,
-            y: 100,
+            y: 0,
         },
         {
             opacity: 1,
