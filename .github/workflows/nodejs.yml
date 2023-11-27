@@ -26,10 +26,10 @@ jobs:
       run: npm run build
 
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: master
         folder: docs
         target-folder: docs
-        commit-message: 'JamesIves/github-pages-deploy-action@4'
+        commit-message: 'JamesIves/github-pages-deploy-action@v4'
         clean: true
