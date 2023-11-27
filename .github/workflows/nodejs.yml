@@ -4,13 +4,13 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'source/markdown/**'
+      - 'source/markdown/build-action-trigger/**'
 
 jobs:
   build:
     permissions:
       contents: write
-      
+
     runs-on: ubuntu-latest
 
     env:
