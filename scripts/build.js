@@ -64,12 +64,16 @@ function minifyHTML() {
 }
 
 function startBrowserSyncBuild() {
-  browserSync.init(browserSyncConfig, (err, bs) => {
-    if (!err) {
-      // Run custom action after BrowserSync initialization
-      console.log('Wubba lubba dub dub!');
-    }
-  });
+  if (process.env.GitHub !== 'true') {
+    browserSync.init(browserSyncConfig, (err, bs) => {
+      if (!err) {
+        // Run custom action after BrowserSync initialization
+        console.log('Wubba lubba dub dub!');
+      }
+    });
+  } else {
+    console.log('Wubba lubba dub dub, because of the build on GitHub, as part of the GitHub Actions workflow.');
+  }
 }
 
 
