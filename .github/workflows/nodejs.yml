@@ -20,10 +20,10 @@ jobs:
         node-version: latest
 
     - name: Install dependencies
-      run: npm install
+      run: npm install --verbose
 
     - name: Run build
-      run: npm run build
+      run: npm run build --verbose
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
