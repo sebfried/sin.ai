@@ -4,7 +4,7 @@ const { execSync } = require('child_process');
 
 (function doStart() {
   console.log('Start dev mode');
-  runMarkdown()
+  runMarkdown();
   runPug();
   startBrowserSync();
   startBrowserSyncWatch();
