@@ -1,13 +1,16 @@
 {
   "name": "sin.ai",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Sin.ai",
+  "author": "Sebastian W. Friedrich",
+  "license": "EUPL-1.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sebfried/sin.ai.git"
   },
-  "license": "EUPL-1.2",
-  "author": "Sebastian W. Friedrich",
+  "engines": {
+    "node": "^20.0.0"
+  },  
   "scripts": {
     "build": "node scripts/build.js",
     "build:css": "node scripts/build-css.js",
