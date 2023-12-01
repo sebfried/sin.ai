@@ -1,5 +1,5 @@
 # Sin.ai Website Builder
-Static Website Builder and a Foundation for *Simple Rick's Vanilla PWA Builder*.
+Static Website Builder and a Foundation for *Simple Rick's Vanilla Website Builder*.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Do not update chalk and purgecss, for now! There is no CommonJS support in the n
 
 - npm outdated
 - npx npm-check-updates -u --target minor
-- npm i
+- npm install
 
 ## How to Contribute
 
