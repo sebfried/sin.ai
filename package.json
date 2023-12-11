@@ -1,6 +1,6 @@
 {
   "name": "sin.ai",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Sin.ai",
   "author": "Sebastian W. Friedrich",
   "license": "EUPL-1.2",
@@ -20,6 +20,7 @@
     "start": "npm run start:copy && node scripts/start.js",
     "start:copy": "node scripts/start-copy.js",
     "start:pug": "node scripts/common-pug.js",
+    "markdown": "node scripts/common-markdown.js",
     "pwa-asset-generator": "node scripts/common-pwa-asset-generator.js",
     "sitemap": "node scripts/common-sitemap.js",
     "postinstall": "npm run start:copy"
