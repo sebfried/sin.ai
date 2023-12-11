@@ -22,6 +22,13 @@ This project **optionally** uses Pug for HTML!
 * scripts = mostly bundler replacement scripts
 * source = src
 
+## Build and Deploy to /docs on GitHub
+
+There is the option to build and deploy code to GitHub Pages (docs) directly on GitHub, bypassing the need for local machine builds. This option offers a more streamlined and efficient workflow, ideal for quick updates or changes.
+
+- Use keyword in commit message: `[build]`
+- Or trigger **Build and Deploy to /docs** workflow manually: `Actions Tab -> Build and Deploy to /docs -> Run workflow`
+
 ## PWA and HTTPS on localhost
 
 For PWA development, for some reason, it is mandatory to use a valid SSL Certificate on localhost.
