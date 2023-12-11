@@ -90,3 +90,5 @@ foldersToProcess.forEach((folder) => {
   const fullPath = path.join(sourceDirectory, folder);
   convertMdToHTML(fullPath);
 });
+
+// TODO: Delete HTML Files that no longer have a corresponding Markdown file

@@ -1,13 +1,18 @@
 name: Build and Deploy to /docs
 
 on:
+  workflow_dispatch:
+    inputs:
+      commit_message:
+        description: 'Commit Message'
+        required: false
+        default: 'build and deploy actions workflow'
   push:
     branches: [ master ]
-    paths:
-      - 'source/markdown/build-action-trigger/**'
 
 jobs:
   build:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[build]')
     permissions:
       contents: write
 
@@ -15,6 +20,7 @@ jobs:
 
     env:
       GitHub: true
+      COMMIT_MESSAGE: ${{ github.event.inputs.commit_message || 'build and deploy actions workflow' }}
 
     steps:
     - name: Checkout
@@ -37,5 +43,5 @@ jobs:
         branch: master
         folder: docs
         target-folder: docs
-        commit-message: 'JamesIves/github-pages-deploy-action@v4'
+        commit-message: ${{ env.COMMIT_MESSAGE }}
         clean: true
