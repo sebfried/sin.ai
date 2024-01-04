@@ -7,7 +7,7 @@ const xmlFormatter = require('xml-formatter');
 const domain = 'https://sin.ai'; // Replace with your domain
 const outputDir = path.join(__dirname, '..', 'source'); // Output directory
 const outputName = 'sitemap.xml';
-const subfolders = []; // Specify subfolders, if any
+const subfolders = ['wallpaper']; // Specify subfolders, if any
 const excludedUrls = ['https://sin.ai/legal'];
 let urls = []; // extra urls
 const pretty = true; // pretty sitemap
@@ -85,7 +85,15 @@ urls.sort((a, b) => {
 });
 
 // Create a writable stream for the sitemap
-const sitemapStream = new SitemapStream({ hostname: domain });
+const sitemapStream = new SitemapStream({ 
+  hostname: domain,
+  xmlns: {
+    news: false, // if you want the news namespace
+    xhtml: false, // if you want the xhtml namespace
+    image: false, // if you want the image namespace
+    video: false // set to false to exclude the video namespace
+  } 
+});
 
 // Add URLs to the stream
 urls.forEach(url => sitemapStream.write(url));
@@ -112,3 +120,5 @@ streamToPromise(sitemapStream).then(sm => {
 
   console.log(`Sitemap generated and saved to ${sitemapPath}`);
 });
+
+// TODO: Additional URL and img infos
