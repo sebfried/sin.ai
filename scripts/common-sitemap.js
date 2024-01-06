@@ -38,10 +38,12 @@ function crawlDirectory(directory, baseUrl) {
         // Fix URL construction
         let url = relativePath === '' ? baseUrl : `${baseUrl}/${relativePath}`;
         //Trim trailing slashes
-        url = url.replace(/\/$/, "")
-        urls.push({ url });
+        url = url.replace(/\/$/, "");
+        // Get the last modified date and format it
+        const lastmod = fs.statSync(filePath).mtime.toISOString();
+        // Push it
+        urls.push({ url, lastmod });
       } else {
-        // Handle the index file without .html extension
         urls.push({ url: baseUrl });
       }
     }
@@ -122,3 +124,4 @@ streamToPromise(sitemapStream).then(sm => {
 });
 
 // TODO: Additional URL and img infos
+// TODO: Handle index files better
